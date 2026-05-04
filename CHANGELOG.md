@@ -7,6 +7,54 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.1.0](https://github.com/dadangnh/as-folio/compare/v1.0.0...v1.1.0) (2026-05-04)
+
+
+### Features
+
+* add announcements, tutorials, and interactive code examples for advanced post features ([11749e0](https://github.com/dadangnh/as-folio/commit/11749e02f14df1a14b76cca19d41d203b0cb1ebe))
+* add breadcrumb navigation and structured data for SEO ([0eaf598](https://github.com/dadangnh/as-folio/commit/0eaf59818fc8d149944cdf972b36e67910dd67d1))
+* add CI workflow and improve project configuration ([e934a85](https://github.com/dadangnh/as-folio/commit/e934a858e204b9c59b67b358bd9a4969323741d1))
+* add citation badges, coauthor profiles, and improved metadata for publications ([b693279](https://github.com/dadangnh/as-folio/commit/b693279f9605b0330384ae6528f81aa91363394a))
+* add featured posts, tag/category list, and improve blog page layout ([a5322b5](https://github.com/dadangnh/as-folio/commit/a5322b502210dac92bf0512c5fb6394661e39da1))
+* add foundational physics project pages and enhance publication search functionality ([dd036e5](https://github.com/dadangnh/as-folio/commit/dd036e5fc4a51e479077e4ea0f2dd853201db1b7))
+* add image optimization domains to Astro config ([46671f8](https://github.com/dadangnh/as-folio/commit/46671f89608bbd1915b310ebaac52b75618fd8a6))
+* add pseudocode support with KaTeX and MathJax integration, and enhance breadcrumb navigation ([fff2630](https://github.com/dadangnh/as-folio/commit/fff26307eed17d0611a96e523c99e5619a2f7c72))
+* add smoke tests, JSON schemas, and utility tests for improved validation and coverage ([d457799](https://github.com/dadangnh/as-folio/commit/d4577994a898748a8384019ae1e4a6186b169ff2))
+* add styled tooltips for interactive annotations and icons ([611bff7](https://github.com/dadangnh/as-folio/commit/611bff7bac3ee389d88e6e1a4763a1f6aa280874))
+* automate citation updates with OpenAlex integration and GitHub Actions workflow ([a5f4181](https://github.com/dadangnh/as-folio/commit/a5f4181376bf82787131742a58353b164d7f2c05))
+* bundle KaTeX CSS locally and enhance Shiki dark mode styles ([e68761a](https://github.com/dadangnh/as-folio/commit/e68761aff54cab3283fcf36c81239e985e6740dc))
+* enhance as-folio features with dark mode, selected publications, and external posts integration ([738315b](https://github.com/dadangnh/as-folio/commit/738315bcff30d9b7c51e4f3dc7255f6a58a621e6))
+* enhance blog structure with pagination, tag/category pages, and social sharing ([dfec5ea](https://github.com/dadangnh/as-folio/commit/dfec5ea15caf43a2a142d3605289c82192e19fec))
+* enhance build process, dependencies, and RSS customization ([d992691](https://github.com/dadangnh/as-folio/commit/d992691edf581e274386faa66ae6e4292cb3c7b2))
+* enhance navbar functionality with AbortController for improved View Transition support ([f65a32f](https://github.com/dadangnh/as-folio/commit/f65a32f795318d7ef236422aa97343e7e0bec47f))
+* enhance projects page layout and add support for related publications with references ([6a16851](https://github.com/dadangnh/as-folio/commit/6a16851d5e21ae486458b9eb47271021977987f9))
+* enhance SEO, improve accessibility, and refine layouts ([b8fff88](https://github.com/dadangnh/as-folio/commit/b8fff8852f3f39c750828d82b209d385affac08d))
+* extract `ProjectCard` component and enhance projects layout ([b5350ae](https://github.com/dadangnh/as-folio/commit/b5350aec870b81a3474797bb553bdea48b1c6836))
+* group blog posts by year, add support for draft and last modified dates ([0da42ec](https://github.com/dadangnh/as-folio/commit/0da42ec262dda5729fab40709aedde6554dbad8b))
+* implement custom sitemap generator and remove dependency on @astrojs/sitemap ([b3b505a](https://github.com/dadangnh/as-folio/commit/b3b505a7b3f43f5d10179e10b99f0f755cee99dc))
+* improve sitemap generation with git-based `<lastmod>` dates fallback ([69aed7d](https://github.com/dadangnh/as-folio/commit/69aed7d97a18053376dc878be173f11f34ebfa71))
+* initial as-folio commit ([4ee075d](https://github.com/dadangnh/as-folio/commit/4ee075dd58fab2f97aaaa63e89e2239ae1edd200))
+* integrate content-based search with ninja-keys and improve theme sync ([76d3e41](https://github.com/dadangnh/as-folio/commit/76d3e41731149a6be2e2ebc369f7603a27313c1a))
+* integrate release-please workflow and improve project documentation ([054e733](https://github.com/dadangnh/as-folio/commit/054e73361eec334dea223844e771774e096243c0))
+* integrate Satori for dynamic OG image generation and enhance lazy loading for comments ([70f448c](https://github.com/dadangnh/as-folio/commit/70f448c23cdd83c29eeeeb9ae199b6f10861aad0))
+* introduce `withBase` utility for base path management and update image/script handling ([60d4cef](https://github.com/dadangnh/as-folio/commit/60d4cefc742e78fcaede6a1ceaf3ad2fc0bb8f55))
+* make deployment workflow and site config customizable via environment variables ([0c2ba3e](https://github.com/dadangnh/as-folio/commit/0c2ba3e65051677cfc27e025e3304bf8479aa35a))
+* refine typography and layout for improved readability and consistency ([2667a5a](https://github.com/dadangnh/as-folio/commit/2667a5a45309ed5dd9f601450551e7f64a427f35))
+* self-host fonts via Fontsource and add sticky footer support ([26dd4c6](https://github.com/dadangnh/as-folio/commit/26dd4c60b564715d172ddff5402d2e5de5f82314))
+* update bio template, enhance project visuals, and improve publication search ([44039f8](https://github.com/dadangnh/as-folio/commit/44039f84a7ac848e44d557c3880dee719133a6ff))
+
+
+### Miscellaneous
+
+* add MIT license file to repository ([b6160a9](https://github.com/dadangnh/as-folio/commit/b6160a9878c71af1e68bc813a1a36e927b3a37fb))
+* add width and height attributes for images and adjust dependencies ([2c0f8f3](https://github.com/dadangnh/as-folio/commit/2c0f8f346114d4be78eae434a10e4e5b3cf91326))
+* update citation counts [skip ci] ([11f19bd](https://github.com/dadangnh/as-folio/commit/11f19bd8c9fbec5e7b572419640ea7ee3e9510c3))
+* update citation counts [skip ci] ([6e82f43](https://github.com/dadangnh/as-folio/commit/6e82f433b10b1f83ab1395abb8e6cead5ceab8e1))
+* update citation counts [skip ci] ([6ac9a27](https://github.com/dadangnh/as-folio/commit/6ac9a273375dc01149b577e2974fb1089e790c4f))
+* update citation counts [skip ci] ([94f1251](https://github.com/dadangnh/as-folio/commit/94f12512dd694a772777c9b88441a8a3db3f9cb3))
+* update citation counts [skip ci] ([92bea82](https://github.com/dadangnh/as-folio/commit/92bea8279da69152e5c3aa5788131e204cd439cb))
+
 ## [Unreleased]
 
 ---
