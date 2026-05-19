@@ -65,6 +65,18 @@ The template ships with demo content for three personas:
 
 ## Getting started
 
+Deployment config is env-first:
+
+- `ASTRO_SITE` and `ASTRO_BASE` are the source of truth
+- `astro.config.mjs` reads them during the build
+- `src/config/site.ts` only consumes the resolved Astro values
+
+Use `.env` for local development and repository variables for GitHub Pages.
+
+For project pages, keep `ASTRO_SITE` as the site origin, for example
+`https://YOUR-USERNAME.github.io`, and put the repo path in `ASTRO_BASE`, for example
+`/as-folio`.
+
 ### Option A — GitHub Pages (recommended)
 
 1. **Fork** this repository on GitHub
@@ -82,6 +94,9 @@ corepack enable
 git clone https://github.com/YOUR-USERNAME/as-folio.git
 cd as-folio
 
+# Copy env template
+cp .env.example .env
+
 # Install
 yarn install
 
@@ -95,6 +110,9 @@ yarn build
 ---
 
 ## Configuration
+
+Deployment URL and base path come from `ASTRO_SITE` and `ASTRO_BASE`, not from editing
+`src/config/site.ts` directly.
 
 All site settings live in one file: **`src/config/site.ts`**
 

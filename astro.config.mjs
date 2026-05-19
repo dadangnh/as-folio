@@ -56,10 +56,28 @@ function rehypeBasePaths() {
   return (tree) => walk(tree);
 }
 
+function normalizeAstroSite(value) {
+  return value ? value.replace(/\/+$/, '') : 'https://example.github.io';
+}
+
+function normalizeAstroBase(value) {
+  if (!value || value === '/') return '';
+  const trimmed = value.replace(/\/+$/, '');
+  return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+}
+
 // https://astro.build/config
+//
+// Deployment config is env-first:
+// - local development: copy `.env.example` to `.env`
+// - GitHub Pages: set repository variables `ASTRO_SITE` and `ASTRO_BASE`
+//
+// `src/config/site.ts` consumes the resolved Astro values via
+// `import.meta.env.SITE` and `import.meta.env.BASE_URL`; it is not the
+// source of truth for deployment URLs.
 export default defineConfig({
-  site: process.env.ASTRO_SITE ?? 'https://example.github.io', // override via ASTRO_SITE env var or edit directly
-  base: process.env.ASTRO_BASE ?? '', // override via ASTRO_BASE env var or set '/repo-name' for project pages
+  site: normalizeAstroSite(process.env.ASTRO_SITE),
+  base: normalizeAstroBase(process.env.ASTRO_BASE),
   output: 'static',
   trailingSlash: 'always',
   compressHTML: true,

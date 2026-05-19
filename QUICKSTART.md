@@ -1,10 +1,10 @@
-# Quickstart — Deploy in 5 minutes
+# Quickstart - Deploy in 5 minutes
 
-Fork → configure → deploy. No local setup required.
+Fork -> configure deployment -> personalize -> deploy. No local setup required.
 
 ---
 
-## Step 1 — Fork the repository
+## Step 1 - Fork the repository
 
 Click **Fork** on the [as-folio GitHub page](https://github.com/dadangnh/as-folio).
 
@@ -12,25 +12,52 @@ Keep the default settings. Fork to your personal account.
 
 ---
 
-## Step 2 — Enable GitHub Pages
+## Step 2 - Enable GitHub Pages
 
 In your fork:
 
-1. Go to **Settings** → **Pages**
+1. Go to **Settings** -> **Pages**
 2. Under _Source_, select **GitHub Actions**
 3. Save
 
 ---
 
-## Step 3 — Configure your site
+## Step 3 - Set deployment variables
 
-Edit `src/config/site.ts` directly on GitHub (click the file → pencil icon):
+In your fork, go to **Settings** -> **Secrets and variables** -> **Actions** -> **Variables**.
+
+Create these repository variables for a user/org page:
+
+```text
+ASTRO_SITE=https://YOUR-USERNAME.github.io
+ASTRO_BASE=
+```
+
+For a project page, use:
+
+```text
+ASTRO_SITE=https://YOUR-USERNAME.github.io
+ASTRO_BASE=/as-folio
+```
+
+`ASTRO_SITE` and `ASTRO_BASE` are the deployment source of truth. The workflow passes
+them to `astro.config.mjs`, and `src/config/site.ts` only reads the resolved Astro values.
+
+Rules:
+
+- `ASTRO_SITE` should be the site origin only, with no trailing slash
+- use `ASTRO_BASE=` for root deployments
+- if you accidentally set `ASTRO_BASE=/`, the config normalizes it back to `''`
+
+---
+
+## Step 4 - Personalize your site
+
+Edit `src/config/site.ts` directly on GitHub:
 
 ```typescript
 export const site = {
   title: 'Your Name',
-  url: 'https://YOUR-USERNAME.github.io',
-  base: '', // keep '' for user pages; set '/as-folio' for project pages
 
   author: {
     name: 'Your Name',
@@ -50,22 +77,29 @@ Commit the change to `main`.
 
 ---
 
-## Step 4 — Wait for the build
+## Step 5 - Wait for the build
 
 The GitHub Actions workflow runs automatically on every push to `main`.
 
-Check progress: **Actions** tab → **Deploy to GitHub Pages** → latest run.
+Check progress in the **Actions** tab under **Deploy to GitHub Pages**.
 
-Build takes ~90–120 seconds. The first step fetches citation counts from OpenAlex — this adds a few seconds but requires no configuration.
+Build takes about 90-120 seconds. The first step fetches citation counts from OpenAlex,
+which adds a few seconds but requires no configuration.
 
 ---
 
-## Step 5 — Visit your site
+## Step 6 - Visit your site
 
 After the workflow completes, your site is live at:
 
-```
+```text
 https://YOUR-USERNAME.github.io
+```
+
+For project pages, the URL will include your repo name:
+
+```text
+https://YOUR-USERNAME.github.io/as-folio
 ```
 
 ---

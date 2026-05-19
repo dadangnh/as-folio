@@ -30,16 +30,27 @@ export const site = {
   description: 'A simple, clean, and responsive Astro template for academics. Powered by as-folio.',
 
   /**
-   * Full URL of your deployed site (no trailing slash).
-   * Automatically derived from astro.config.mjs `site` option (set ASTRO_SITE env var in CI).
-   * Falls back to 'https://example.github.io' for local development.
+   * Site origin used by Astro's resolved `site` option (no trailing slash).
+   * Example: `https://username.github.io`
+   * Automatically derived from Astro's resolved `site` option.
+   * Source of truth:
+   * - local development: `ASTRO_SITE` in `.env`
+   * - GitHub Pages: repository variable `ASTRO_SITE`
+   *
+   * This value is intentionally derived here rather than edited directly.
    */
   url: (import.meta.env.SITE ?? 'https://example.github.io').replace(/\/$/, ''),
 
   /**
    * Base path. Leave '' for user/org pages (username.github.io).
+   * If `ASTRO_BASE` is unset or set to '/', it resolves to ''.
    * Set to '/repo-name' for project pages (username.github.io/repo-name).
-   * Automatically derived from astro.config.mjs `base` option (set ASTRO_BASE env var in CI).
+   * Automatically derived from Astro's resolved `base` option.
+   * Source of truth:
+   * - local development: `ASTRO_BASE` in `.env`
+   * - GitHub Pages: repository variable `ASTRO_BASE`
+   *
+   * This value is intentionally derived here rather than edited directly.
    */
   base: import.meta.env.BASE_URL === '/' ? '' : (import.meta.env.BASE_URL ?? '').replace(/\/$/, ''),
 

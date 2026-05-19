@@ -31,9 +31,11 @@ jobs:
       - name: Build site
         run: yarn build
         env:
-          # Set these as repository variables (Settings → Variables) to override.
-          # ASTRO_SITE: full URL of deployed site, e.g. https://username.github.io
-          # ASTRO_BASE: base path for project pages, e.g. /repo-name (leave unset for user pages)
+          # Deployment config is env-first.
+          # Forks should set these as repository variables in Settings -> Secrets and variables -> Actions.
+          # ASTRO_SITE: site origin, e.g. https://username.github.io
+          # ASTRO_BASE: project-page base path, e.g. /repo-name (leave empty for user/org pages)
+          # The fallbacks below are only for this template repository's own deployment.
           ASTRO_SITE: ${{ vars.ASTRO_SITE || 'https://dadangnh.github.io' }}
           ASTRO_BASE: ${{ vars.ASTRO_BASE || '/as-folio' }}
 

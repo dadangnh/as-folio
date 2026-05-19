@@ -32,7 +32,54 @@ This guide walks through every aspect of personalizing your as-folio site.
 
 ---
 
-## 1. Site identity
+## 1. Deployment config
+
+Deployment is env-first. These values flow through the app like this:
+
+```text
+ASTRO_SITE / ASTRO_BASE
+-> astro.config.mjs
+-> import.meta.env.SITE / import.meta.env.BASE_URL
+-> src/config/site.ts
+```
+
+That means `src/config/site.ts` reads the resolved deployment values, but it is not the
+source of truth for them.
+
+### Local development
+
+Copy `.env.example` to `.env`, then set:
+
+```dotenv
+ASTRO_SITE=https://username.github.io
+ASTRO_BASE=
+```
+
+For a project page:
+
+```dotenv
+ASTRO_SITE=https://username.github.io
+ASTRO_BASE=/repo-name
+```
+
+Rules:
+
+- `ASTRO_SITE` should be the site origin only, with no trailing slash
+- use `ASTRO_BASE=` for root deployments
+- if you accidentally set `ASTRO_BASE=/`, the config normalizes it back to `''`
+
+### GitHub Pages
+
+In your fork, set repository variables in **Settings** -> **Secrets and variables** -> **Actions**:
+
+- `ASTRO_SITE`
+- `ASTRO_BASE`
+
+The deploy workflow reads those variables and passes them to the Astro build.
+
+---
+
+## 2. Site identity
 
 Edit `src/config/site.ts`:
 
@@ -58,6 +105,9 @@ export const site = {
 ```
 
 `subtitle` and `moreInfo` support HTML.
+
+`url` and `base` in `site.ts` are derived from Astro's resolved environment, so you normally
+should not edit them directly. Use `ASTRO_SITE` and `ASTRO_BASE` instead.
 
 ---
 
@@ -688,16 +738,16 @@ The search index is rebuilt on every `yarn build` run.
 
 **User/org pages** (`username.github.io`):
 
-```typescript
-url: 'https://username.github.io',
-base: '',
+```dotenv
+ASTRO_SITE=https://username.github.io
+ASTRO_BASE=
 ```
 
 **Project pages** (`username.github.io/repo-name`):
 
-```typescript
-url: 'https://username.github.io/repo-name',
-base: '/repo-name',
+```dotenv
+ASTRO_SITE=https://username.github.io
+ASTRO_BASE=/repo-name
 ```
 
 Also update `astro.config.mjs` if the base changes (it reads from `site.ts` by default — check the config).
