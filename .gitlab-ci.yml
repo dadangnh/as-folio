@@ -4,7 +4,7 @@ image: node:24
 # Override in Settings → CI/CD → Variables:
 #   ASTRO_SITE  Full URL of your deployed site, e.g. https://username.gitlab.io
 #   ASTRO_BASE  Base path for project pages, e.g. /repo-name
-#               Leave empty ("") for user/group pages (username.gitlab.io)
+#               Leave unset for user/group pages (username.gitlab.io)
 # ──────────────────────────────────────────────────────────────────────────────
 variables:
   NODE_ENV: production
@@ -54,13 +54,13 @@ build:
     paths:
       - dist/
     expire_in: 1 week
-  rules:
-    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
 
 pages:
   stage: deploy
+  needs: [build]
+  before_script: []
   script:
-    - yarn build
+    - echo "Publishing dist/ to GitLab Pages"
   pages:
     publish: dist
   artifacts:

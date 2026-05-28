@@ -267,7 +267,7 @@ Already configured in `.gitlab-ci.yml`. Push to your default branch after:
 1. Forking or mirroring this repo to GitLab
 2. Going to **Settings** → **CI/CD** → **Variables** and adding:
    - `ASTRO_SITE` — full URL, e.g. `https://username.gitlab.io` or your custom domain
-   - `ASTRO_BASE` — base path for project pages, e.g. `/as-folio`; set to `""` (empty string) for user/group pages (`username.gitlab.io`)
+   - `ASTRO_BASE` — base path for project pages, e.g. `/as-folio`; leave unset for user/group pages (`username.gitlab.io`)
 3. Pushing to your default branch — the pipeline runs typecheck → lint → unit tests → deploy automatically
 
 ### Cloudflare Pages
