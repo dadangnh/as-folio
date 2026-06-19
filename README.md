@@ -126,8 +126,6 @@ This replaces al-folio's `_config.yml`. Every option is typed and documented wit
 export const site = {
   title: 'Your Name',
   description: 'Your site description',
-  url: 'https://your-username.github.io',
-  base: '', // '' for user pages, '/repo-name' for project pages
 
   author: {
     name: 'Your Name',
@@ -275,8 +273,8 @@ Optional notes about the book.
 Already configured. Push to `main` after:
 
 1. Setting source to GitHub Actions in repo Settings → Pages
-2. Setting `base: ''` (user page) or `base: '/repo-name'` (project page) in `site.ts`
-3. Setting `url: 'https://your-username.github.io'` in `site.ts`
+2. Setting repository variable `ASTRO_SITE` to your site origin, e.g. `https://username.github.io`
+3. Setting repository variable `ASTRO_BASE` to `''` for user pages or `/repo-name` for project pages
 
 ### GitLab Pages
 

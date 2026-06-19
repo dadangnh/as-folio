@@ -6,29 +6,30 @@ This guide walks through every aspect of personalizing your as-folio site.
 
 ## Table of contents
 
-1. [Site identity](#1-site-identity)
-2. [Profile photo](#2-profile-photo)
-3. [Social links](#3-social-links)
-4. [About page content](#4-about-page-content)
-5. [Blog posts](#5-blog-posts)
-6. [Publications (BibTeX)](#6-publications-bibtex) — BibTeX fields, co-author links, citation badges
-7. [Projects](#7-projects)
-8. [CV](#8-cv)
-9. [Books](#9-books)
-10. [Teaching](#10-teaching)
-11. [People / Lab members](#11-people--lab-members)
-12. [Repositories page](#12-repositories-page)
-13. [Announcements](#13-announcements)
-14. [Dark mode](#14-dark-mode)
-15. [Comments (Giscus / Disqus)](#15-comments-giscus--disqus)
-16. [Analytics](#16-analytics)
-17. [Newsletter](#17-newsletter)
-18. [Cookie consent](#18-cookie-consent)
-19. [Search](#19-search)
-20. [Deployment base path](#20-deployment-base-path)
-21. [Enabling / disabling features](#21-enabling--disabling-features)
-22. [Custom styles](#22-custom-styles)
-23. [Footer position](#23-footer-position)
+1. [Deployment config](#1-deployment-config)
+2. [Site identity](#2-site-identity)
+3. [Profile photo](#3-profile-photo)
+4. [Social links](#4-social-links)
+5. [About page content](#5-about-page-content)
+6. [Blog posts](#6-blog-posts)
+7. [Publications (BibTeX)](#7-publications-bibtex) — BibTeX fields, co-author links, citation badges
+8. [Projects](#8-projects)
+9. [CV](#9-cv)
+10. [Books](#10-books)
+11. [Teaching](#11-teaching)
+12. [People / Lab members](#12-people--lab-members)
+13. [Repositories page](#13-repositories-page)
+14. [Announcements](#14-announcements)
+15. [Dark mode](#15-dark-mode)
+16. [Comments (Giscus / Disqus)](#16-comments-giscus--disqus)
+17. [Analytics](#17-analytics)
+18. [Newsletter](#18-newsletter)
+19. [Cookie consent](#19-cookie-consent)
+20. [Search](#20-search)
+21. [Deployment base path](#21-deployment-base-path)
+22. [Enabling / disabling features](#22-enabling--disabling-features)
+23. [Custom styles](#23-custom-styles)
+24. [Footer position](#24-footer-position)
 
 ---
 
@@ -87,8 +88,6 @@ Edit `src/config/site.ts`:
 export const site = {
   title: 'Your Name',
   description: 'Brief description of your site',
-  url: 'https://your-username.github.io',
-  base: '', // see §20 for project pages
   lang: 'en',
 
   author: {
@@ -111,7 +110,7 @@ should not edit them directly. Use `ASTRO_SITE` and `ASTRO_BASE` instead.
 
 ---
 
-## 2. Profile photo
+## 3. Profile photo
 
 Replace `public/assets/img/prof_pic.jpg` (or `.svg`, `.png`, `.webp`) with your own photo.
 
@@ -127,7 +126,7 @@ Recommended: square image, at least 400×400 px.
 
 ---
 
-## 3. Social links
+## 4. Social links
 
 Set any platform to `undefined` to hide it:
 
@@ -154,7 +153,7 @@ socials: {
 
 ---
 
-## 4. About page content
+## 5. About page content
 
 Edit `src/pages/index.astro` to change the bio text. The About page auto-pulls from:
 
@@ -166,7 +165,7 @@ All three sections can be disabled in `site.ts`.
 
 ---
 
-## 5. Blog posts
+## 6. Blog posts
 
 Create `.md` or `.mdx` files in `src/content/posts/`:
 
@@ -357,7 +356,7 @@ Citation counts for Google Scholar badges come from `src/data/citations.yml`, ke
 
 ```yaml
 # src/data/citations.yml — auto-generated, do not edit by hand
-qyhmnyLat1gC: 14200   # EPR paper
+qyhmnyLat1gC: 14200 # EPR paper
 ```
 
 **Refreshing counts:**
@@ -615,13 +614,13 @@ Set either value to `'auto'` to keep the built-in default for that mode.
 
 **Preset palettes:**
 
-| Name             | `light`     | `dark`      |
-| ---------------- | ----------- | ----------- |
-| Purple (default) | `#b509ac`   | `#2698ba`   |
-| Blue             | `#0076df`   | `#68c0d9`   |
-| Red              | `#ff3636`   | `#f29105`   |
-| Green            | `#009f06`   | `#b7d12a`   |
-| Orange           | `#f29105`   | `#efcc00`   |
+| Name             | `light`   | `dark`    |
+| ---------------- | --------- | --------- |
+| Purple (default) | `#b509ac` | `#2698ba` |
+| Blue             | `#0076df` | `#68c0d9` |
+| Red              | `#ff3636` | `#f29105` |
+| Green            | `#009f06` | `#b7d12a` |
+| Orange           | `#f29105` | `#efcc00` |
 
 ---
 
@@ -750,7 +749,7 @@ ASTRO_SITE=https://username.github.io
 ASTRO_BASE=/repo-name
 ```
 
-Also update `astro.config.mjs` if the base changes (it reads from `site.ts` by default — check the config).
+`ASTRO_SITE` should not include the repo path or a trailing slash.
 
 ---
 

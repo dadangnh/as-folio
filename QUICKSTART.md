@@ -33,21 +33,14 @@ ASTRO_SITE=https://YOUR-USERNAME.github.io
 ASTRO_BASE=
 ```
 
+If you need an alternative to an empty string, `ASTRO_BASE=/` is equivalent here.
+
 For a project page, use:
 
 ```text
 ASTRO_SITE=https://YOUR-USERNAME.github.io
 ASTRO_BASE=/as-folio
 ```
-
-`ASTRO_SITE` and `ASTRO_BASE` are the deployment source of truth. The workflow passes
-them to `astro.config.mjs`, and `src/config/site.ts` only reads the resolved Astro values.
-
-Rules:
-
-- `ASTRO_SITE` should be the site origin only, with no trailing slash
-- use `ASTRO_BASE=` for root deployments
-- if you accidentally set `ASTRO_BASE=/`, the config normalizes it back to `''`
 
 ---
 
