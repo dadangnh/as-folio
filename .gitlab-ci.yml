@@ -1,0 +1,70 @@
+image: node:24
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Override in Settings → CI/CD → Variables:
+#   ASTRO_SITE  Full URL of your deployed site, e.g. https://username.gitlab.io
+#   ASTRO_BASE  Base path for project pages, e.g. /repo-name
+#               Leave unset for user/group pages (username.gitlab.io)
+# ──────────────────────────────────────────────────────────────────────────────
+variables:
+  NODE_ENV: production
+  ASTRO_SITE: https://username.gitlab.io
+  ASTRO_BASE: /as-folio
+
+stages:
+  - validate
+  - test
+  - build
+  - deploy
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - .yarn/cache/
+    - node_modules/
+
+before_script:
+  - corepack enable
+  - yarn install --immutable
+
+typecheck:
+  stage: validate
+  interruptible: true
+  script:
+    - yarn test:types
+
+lint:
+  stage: validate
+  interruptible: true
+  script:
+    - yarn lint:ci
+
+unit-test:
+  stage: test
+  interruptible: true
+  script:
+    - yarn test
+
+build:
+  stage: build
+  interruptible: true
+  script:
+    - yarn build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  needs: [build]
+  before_script: []
+  script:
+    - echo "Publishing dist/ to GitLab Pages"
+  pages:
+    publish: dist
+  artifacts:
+    paths:
+      - dist
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
