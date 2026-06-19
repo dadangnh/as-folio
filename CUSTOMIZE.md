@@ -38,9 +38,9 @@ Deployment is env-first. These values flow through the app like this:
 
 ```text
 ASTRO_SITE / ASTRO_BASE
--> astro.config.mjs
--> import.meta.env.SITE / import.meta.env.BASE_URL
--> src/config/site.ts
+→ astro.config.mjs
+→ import.meta.env.SITE / import.meta.env.BASE_URL
+→ src/config/site.ts
 ```
 
 That means `src/config/site.ts` reads the resolved deployment values, but it is not the
@@ -70,7 +70,7 @@ Rules:
 
 ### GitHub Pages
 
-In your fork, set repository variables in **Settings** -> **Secrets and variables** -> **Actions**:
+In your fork, set repository variables in **Settings** → **Secrets and variables** → **Actions**:
 
 - `ASTRO_SITE`
 - `ASTRO_BASE`

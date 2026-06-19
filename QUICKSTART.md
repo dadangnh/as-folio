@@ -1,6 +1,6 @@
 # Quickstart - Deploy in 5 minutes
 
-Fork -> configure deployment -> personalize -> deploy. No local setup required.
+Fork → configure deployment → personalize → deploy. No local setup required.
 
 ---
 
@@ -16,7 +16,7 @@ Keep the default settings. Fork to your personal account.
 
 In your fork:
 
-1. Go to **Settings** -> **Pages**
+1. Go to **Settings** → **Pages**
 2. Under _Source_, select **GitHub Actions**
 3. Save
 
@@ -24,7 +24,7 @@ In your fork:
 
 ## Step 3 - Set deployment variables
 
-In your fork, go to **Settings** -> **Secrets and variables** -> **Actions** -> **Variables**.
+In your fork, go to **Settings** → **Secrets and variables** → **Actions** → **Variables**.
 
 Create these repository variables for a user/org page:
 
