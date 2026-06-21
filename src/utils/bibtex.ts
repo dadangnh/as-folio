@@ -83,7 +83,7 @@ export function parseBibtex(src: string): BibEntry[] {
       while (pos < fieldsStr.length && /\s/.test(fieldsStr[pos])) pos++;
 
       // Field value — braces, quotes, or bare number
-      let value = '';
+      let value: string;
       if (fieldsStr[pos] === '{') {
         const end = matchingBrace(fieldsStr, pos);
         if (end === -1) break;

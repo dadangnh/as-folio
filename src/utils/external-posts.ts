@@ -50,7 +50,7 @@ function parseRssFeed(
     if (!title) continue;
 
     // <link href="..."> (Atom) or <link>url</link>
-    let url = '';
+    let url: string;
     const linkHrefMatch = block.match(/<link\s+[^>]*href="([^"]+)"/);
     if (linkHrefMatch) {
       url = linkHrefMatch[1];
