@@ -7,6 +7,18 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.2.0](https://github.com/dadangnh/as-folio/compare/v1.1.0...v1.2.0) (2026-06-21)
+
+
+### Features
+
+* add GitLab CI/CD pipeline and deployment instructions ([#3](https://github.com/dadangnh/as-folio/issues/3)) ([5233003](https://github.com/dadangnh/as-folio/commit/5233003fbf2881b9978f0c643b1c328aff19379f))
+
+
+### Miscellaneous
+
+* upgrade all deps to latest stable + pagefind search enhancements ([#5](https://github.com/dadangnh/as-folio/issues/5)) ([0ad52f4](https://github.com/dadangnh/as-folio/commit/0ad52f450796b870cb54a4242f7b330bbdabe433))
+
 ## [1.1.0](https://github.com/dadangnh/as-folio/compare/v1.0.0...v1.1.0) (2026-05-04)
 
 
