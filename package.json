@@ -71,7 +71,6 @@
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/roboto": "^5.2.10",
     "@fontsource/roboto-condensed": "^5.2.8",
     "@fontsource/source-code-pro": "^5.2.7",
