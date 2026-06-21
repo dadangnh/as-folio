@@ -146,7 +146,10 @@ const jsonLd = {
       }
 
       <!-- Post content -->
-      <article class="flex-1 min-w-0">
+      <article class="flex-1 min-w-0" data-pagefind-body>
+        <!-- Hidden metadata for pagefind structured search -->
+        <span data-pagefind-meta="date" style="display:none">{date.toISOString().slice(0, 10)}</span>
+
         <!-- Breadcrumb -->
         <nav aria-label="Breadcrumb" class="breadcrumb-nav">
           <a href={`${site.base}/blog/`} class="breadcrumb-link">← Blog</a>
@@ -154,7 +157,7 @@ const jsonLd = {
 
         <!-- Header -->
         <header class="post-header">
-          <h1 class="post-title" style="margin-bottom: 0.75rem;">
+          <h1 class="post-title" style="margin-bottom: 0.75rem;" data-pagefind-weight="10">
             {title}
           </h1>
 

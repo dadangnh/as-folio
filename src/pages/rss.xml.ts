@@ -12,6 +12,7 @@ export async function GET(context: APIContext) {
     title: site.blog?.name || site.title,
     description: site.blog?.description || site.description,
     site: context.site ?? site.url,
+    sanitizeXml: true,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description ?? '',
