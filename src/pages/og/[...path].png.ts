@@ -25,13 +25,13 @@ const fontBold = readFileSync(resolve(fontRoot, 'roboto-latin-700-normal.woff'))
 const FONTS = [
   {
     name: 'Roboto',
-    data: fontRegular.buffer as ArrayBuffer,
+    data: fontRegular,
     weight: 400 as const,
     style: 'normal' as const,
   },
   {
     name: 'Roboto',
-    data: fontBold.buffer as ArrayBuffer,
+    data: fontBold,
     weight: 700 as const,
     style: 'normal' as const,
   },
