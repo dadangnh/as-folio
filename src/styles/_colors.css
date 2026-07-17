@@ -46,8 +46,8 @@
   --global-code-bg-color: #f3f4f6;
   --global-text-color: #1a1a1a;
   --global-text-color-light: #6c757d;
-  --global-theme-color: var(--color-purple);
-  --global-hover-color: var(--color-purple-dark);
+  --global-theme-color: var(--user-accent-light, var(--color-purple));
+  --global-hover-color: var(--user-hover-light, var(--color-purple-dark));
   --global-hover-text-color: var(--color-white);
   --global-dropdown-hover-bg: var(--color-purple-dark);
   --global-dropdown-hover-text: var(--color-white);
@@ -87,8 +87,8 @@ html[data-theme='dark'] {
   --global-code-bg-color: var(--color-code-bg-dark);
   --global-text-color: var(--color-grey-light);
   --global-text-color-light: #9e9e9e;
-  --global-theme-color: var(--color-cyan);
-  --global-hover-color: var(--color-cyan);
+  --global-theme-color: var(--user-accent-dark, var(--color-cyan));
+  --global-hover-color: var(--user-hover-dark, var(--color-cyan));
   --global-hover-text-color: var(--color-white);
   --global-dropdown-hover-bg: rgba(38, 152, 186, 0.12);
   --global-dropdown-hover-text: var(--global-text-color);

@@ -36,19 +36,21 @@ const resolvedImage = image?.startsWith('/')
   : image;
 const ogImage = resolvedImage ? new URL(resolvedImage, site.url).toString() : undefined;
 
-// Theme color override — only injected when site.theme.color is not 'auto'
-const lightColor = site.theme.color.light === 'auto' ? null : site.theme.color.light;
-const darkColor = site.theme.color.dark === 'auto' ? null : site.theme.color.dark;
-const colorOverrideStyle = [
-  lightColor
-    ? `:root,[data-theme='light']{--global-theme-color:${lightColor};--global-hover-color:${lightColor};}`
-    : '',
-  darkColor
-    ? `[data-theme='dark']{--global-theme-color:${darkColor};--global-hover-color:${darkColor};}`
-    : '',
+// Theme color override — emit --user-* vars consumed by _colors.css ('auto' → palette default)
+const color = site.theme.color;
+const accentLight = color.light === 'auto' ? null : color.light;
+const accentDark = color.dark === 'auto' ? null : color.dark;
+const hoverLight = color.hoverLight === 'auto' ? null : color.hoverLight;
+const hoverDark = color.hoverDark === 'auto' ? null : color.hoverDark;
+const decls = [
+  accentLight && `--user-accent-light:${accentLight};`,
+  hoverLight && `--user-hover-light:${hoverLight};`,
+  accentDark && `--user-accent-dark:${accentDark};`,
+  hoverDark && `--user-hover-dark:${hoverDark};`,
 ]
   .filter(Boolean)
   .join('');
+const colorOverrideStyle = decls ? `:root{${decls}}` : '';
 
 // Person JSON-LD for homepage — helps search engines associate content with the author
 const personJsonLd = isHome ? JSON.stringify({

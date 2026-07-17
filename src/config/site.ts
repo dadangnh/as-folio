@@ -436,10 +436,13 @@ export const site = {
      *   Red:              { light: '#ff3636', dark: '#f29105' }
      *   Green:            { light: '#009f06', dark: '#b7d12a' }
      *   Orange:           { light: '#f29105', dark: '#efcc00' }
+     *   Custom hover:     { light: '#0076df', dark: '#68c0d9', hoverLight: '#0a53be', hoverDark: '#9fd8ea' }
      */
     color: {
       light: 'auto' as string,
       dark: 'auto' as string,
+      hoverLight: 'auto' as string,
+      hoverDark: 'auto' as string,
     },
   },
 } as const;

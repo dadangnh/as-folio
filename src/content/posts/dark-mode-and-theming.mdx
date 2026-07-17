@@ -80,13 +80,17 @@ new MutationObserver(() => {
 
 ## Customising the accent colour
 
-The theme colour is set in `src/config/site.ts` as a comment/reference, but the actual CSS variables are in `src/styles/_colors.css`. To change the accent, update `--global-theme-color` (and optionally `--global-hover-color`) in both `:root` and `[data-theme="dark"]`:
+The theme colour is set in `src/config/site.ts` under `theme.color`. To change the accent, update `light` and `dark` (and optionally `hoverLight` and `hoverDark`) — each takes any CSS colour, or `'auto'` for the built-in default:
 
-```css
-:root {
-  --global-theme-color: #0070f3; /* Vercel blue */
-  --global-hover-color: #005cc5;
-}
+```ts
+theme: {
+  color: {
+    light: '#0070f3', /* Vercel blue */
+    dark: '#68c0d9',
+    hoverLight: 'auto',
+    hoverDark: 'auto',
+  },
+},
 ```
 
 That's all — every badge, link highlight, tag pill, and interactive element picks it up automatically.
