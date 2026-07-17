@@ -7,6 +7,13 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.2.2](https://github.com/dadangnh/as-folio/compare/v1.2.1...v1.2.2) (2026-07-17)
+
+
+### Miscellaneous
+
+* **deps:** bump checkout & setup-node to v5 (Node 24 runtime) ([#6](https://github.com/dadangnh/as-folio/issues/6)) ([882aaf3](https://github.com/dadangnh/as-folio/commit/882aaf3d9781d28cde143ab1e74daac0757ce161))
+
 ## [1.2.1](https://github.com/dadangnh/as-folio/compare/v1.2.0...v1.2.1) (2026-07-17)
 
 
