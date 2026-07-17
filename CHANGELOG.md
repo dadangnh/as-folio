@@ -7,6 +7,13 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.2.1](https://github.com/dadangnh/as-folio/compare/v1.2.0...v1.2.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* **og:** pass the font Buffer to satori instead of its pooled .buffer ([#7](https://github.com/dadangnh/as-folio/issues/7)) ([059d3b4](https://github.com/dadangnh/as-folio/commit/059d3b4a7b63b20e2f795b5534cfd04939df2d29))
+
 ## [1.2.0](https://github.com/dadangnh/as-folio/compare/v1.1.0...v1.2.0) (2026-06-21)
 
 
