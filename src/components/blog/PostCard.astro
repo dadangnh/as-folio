@@ -3,7 +3,10 @@ import { site } from '@config/site';
 import { withBase } from '@utils/base';
 import { readingTime } from '@utils/reading-time';
 import type { CollectionEntry } from 'astro:content';
-import { Icon } from 'astro-icon/components';
+
+import IconCalendar from '~icons/fa-solid/calendar';
+import IconHashtag from '~icons/fa-solid/hashtag';
+import IconTag from '~icons/fa-solid/tag';
 
 /** A local post from the 'posts' collection. */
 type LocalPost = CollectionEntry<'posts'>;
@@ -80,14 +83,14 @@ const year = d.getFullYear();
         </p>
         <p class="post-tags">
           <a href={`${site.base}/blog/`}>
-            <Icon name="fa-solid:calendar" />
+            <IconCalendar />
             &nbsp;{year}
           </a>
           {tags.map((tag) => (
             <>
               &nbsp;&middot;&nbsp;
               <a href={`${site.base}/blog/tag/${tag}/`}>
-                <Icon name="fa-solid:hashtag" />
+                <IconHashtag />
                 &nbsp;{tag}
               </a>
             </>
@@ -96,7 +99,7 @@ const year = d.getFullYear();
             <>
               &nbsp;&middot;&nbsp;
               <a href={`${site.base}/blog/category/${cat}/`}>
-                <Icon name="fa-solid:tag" />
+                <IconTag />
                 &nbsp;{cat}
               </a>
             </>
@@ -135,14 +138,14 @@ const year = d.getFullYear();
       </p>
       <p class="post-tags">
         <a href={`${site.base}/blog/`}>
-          <Icon name="fa-solid:calendar" />
+          <IconCalendar />
           &nbsp;{year}
         </a>
         {tags.map((tag) => (
           <>
             &nbsp;&middot;&nbsp;
             <a href={`${site.base}/blog/tag/${tag}/`}>
-              <Icon name="fa-solid:hashtag" />
+              <IconHashtag />
               &nbsp;{tag}
             </a>
           </>
@@ -151,7 +154,7 @@ const year = d.getFullYear();
           <>
             &nbsp;&middot;&nbsp;
             <a href={`${site.base}/blog/category/${cat}/`}>
-              <Icon name="fa-solid:tag" />
+              <IconTag />
               &nbsp;{cat}
             </a>
           </>

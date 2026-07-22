@@ -1,7 +1,23 @@
 ---
 import { site } from '@config/site';
 import { withBase } from '@utils/base';
-import { Icon } from 'astro-icon/components';
+
+import IconArxiv from '~icons/academicons/arxiv';
+import IconGoogleScholar from '~icons/academicons/google-scholar';
+import IconInspire from '~icons/academicons/inspire';
+import IconOrcid from '~icons/academicons/orcid';
+import IconResearchgate from '~icons/academicons/researchgate';
+import IconGithub from '~icons/fa-brands/github';
+import IconGitlab from '~icons/fa-brands/gitlab';
+import IconInstagram from '~icons/fa-brands/instagram';
+import IconLinkedin from '~icons/fa-brands/linkedin';
+import IconMastodon from '~icons/fa-brands/mastodon';
+import IconMedium from '~icons/fa-brands/medium';
+import IconTwitter from '~icons/fa-brands/twitter';
+import IconYoutube from '~icons/fa-brands/youtube';
+import IconEnvelope from '~icons/fa-solid/envelope';
+import IconFilePdf from '~icons/fa-solid/file-pdf';
+import IconRss from '~icons/fa-solid/rss';
 
 interface Props {
   /** Additional CSS classes for the container */
@@ -16,113 +32,113 @@ const s = site.socials;
 type SocialLink = {
   href: string;
   label: string;
-  icon: string;
+  Icon: typeof IconGithub;
 };
 
 const links: SocialLink[] = [];
 
 if (s.email) {
-  links.push({ href: `mailto:${s.email}`, label: 'Email', icon: 'fa-solid:envelope' });
+  links.push({ href: `mailto:${s.email}`, label: 'Email', Icon: IconEnvelope });
 }
 if (s.x_username) {
   links.push({
     href: `https://x.com/${s.x_username}`,
     label: 'X (Twitter)',
-    icon: 'fa-brands:twitter',
+    Icon: IconTwitter,
   });
 }
 if (s.linkedin_username) {
   links.push({
     href: `https://www.linkedin.com/in/${s.linkedin_username}`,
     label: 'LinkedIn',
-    icon: 'fa-brands:linkedin',
+    Icon: IconLinkedin,
   });
 }
 if (s.github_username) {
   links.push({
     href: `https://github.com/${s.github_username}`,
     label: 'GitHub',
-    icon: 'fa-brands:github',
+    Icon: IconGithub,
   });
 }
 if (s.gitlab_username) {
   links.push({
     href: `https://gitlab.com/${s.gitlab_username}`,
     label: 'GitLab',
-    icon: 'fa-brands:gitlab',
+    Icon: IconGitlab,
   });
 }
 if (s.scholar_userid) {
   links.push({
     href: `https://scholar.google.com/citations?user=${s.scholar_userid}`,
     label: 'Google Scholar',
-    icon: 'academicons:google-scholar',
+    Icon: IconGoogleScholar,
   });
 }
 if (s.orcid_id) {
   links.push({
     href: `https://orcid.org/${s.orcid_id}`,
     label: 'ORCID',
-    icon: 'academicons:orcid',
+    Icon: IconOrcid,
   });
 }
 if (s.inspire_id) {
   links.push({
     href: `https://inspirehep.net/authors/${s.inspire_id}`,
     label: 'InspireHEP',
-    icon: 'academicons:inspire',
+    Icon: IconInspire,
   });
 }
 if (s.researchgate_username) {
   links.push({
     href: `https://www.researchgate.net/profile/${s.researchgate_username}`,
     label: 'ResearchGate',
-    icon: 'academicons:researchgate',
+    Icon: IconResearchgate,
   });
 }
 if (s.arxiv_id) {
   links.push({
     href: `https://arxiv.org/a/${s.arxiv_id}.html`,
     label: 'arXiv',
-    icon: 'academicons:arxiv',
+    Icon: IconArxiv,
   });
 }
 if (s.youtube_id) {
   links.push({
     href: `https://www.youtube.com/@${s.youtube_id}`,
     label: 'YouTube',
-    icon: 'fa-brands:youtube',
+    Icon: IconYoutube,
   });
 }
 if (s.instagram_username) {
   links.push({
     href: `https://www.instagram.com/${s.instagram_username}`,
     label: 'Instagram',
-    icon: 'fa-brands:instagram',
+    Icon: IconInstagram,
   });
 }
 if (s.mastodon_url) {
-  links.push({ href: s.mastodon_url, label: 'Mastodon', icon: 'fa-brands:mastodon' });
+  links.push({ href: s.mastodon_url, label: 'Mastodon', Icon: IconMastodon });
 }
 if (s.bluesky_handle) {
   links.push({
     href: `https://bsky.app/profile/${s.bluesky_handle}`,
     label: 'Bluesky',
-    icon: 'fa-brands:twitter',
+    Icon: IconTwitter,
   });
 }
 if (s.medium_username) {
   links.push({
     href: `https://medium.com/@${s.medium_username}`,
     label: 'Medium',
-    icon: 'fa-brands:medium',
+    Icon: IconMedium,
   });
 }
 if (s.cv_pdf) {
-  links.push({ href: withBase(s.cv_pdf), label: 'CV', icon: 'fa-solid:file-pdf' });
+  links.push({ href: withBase(s.cv_pdf), label: 'CV', Icon: IconFilePdf });
 }
 if (s.rss_icon) {
-  links.push({ href: `${site.base}/feed.xml`, label: 'RSS', icon: 'fa-solid:rss' });
+  links.push({ href: `${site.base}/feed.xml`, label: 'RSS', Icon: IconRss });
 }
 ---
 
@@ -138,7 +154,7 @@ if (s.rss_icon) {
         style="color: var(--global-text-color); text-decoration: none; transition: color 0.15s;"
         class="social-link"
       >
-        <Icon name={link.icon} width={size} height={size} />
+        <link.Icon width={size} height={size} />
       </a>
     ))
   }

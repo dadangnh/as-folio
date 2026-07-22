@@ -6,8 +6,9 @@ import Page from '@layouts/Page.astro';
 import { withBase } from '@utils/base';
 import type { JSONResume, RenderCV, RenderCVEntry } from '@utils/cv';
 import { formatCVDate, formatDateRange } from '@utils/cv';
-import { Icon } from 'astro-icon/components';
 import yaml from 'js-yaml';
+
+import IconFilePdf from '~icons/fa-solid/file-pdf';
 
 import cvRaw from '../data/cv.yml?raw';
 import resumeData from '../data/resume.json';
@@ -66,7 +67,7 @@ if (format === 'rendercv' && rc) {
             class="float-right"
             aria-label="Download CV PDF"
           >
-            <Icon name="fa-solid:file-pdf" />
+            <IconFilePdf />
           </a>
         )}
       </h1>

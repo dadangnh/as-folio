@@ -53,9 +53,10 @@ yarn format         # Prettier
 
 ### Icons
 
-- `astro-icon` with `@iconify-json/fa-brands`, `@iconify-json/fa-solid`, `@iconify-json/fa-regular`
+- `unplugin-icons` (`compiler: 'astro'`) with `@iconify-json/fa-brands`, `@iconify-json/fa-solid`, `@iconify-json/fa-regular`
 - `@iconify-json/academicons` for academic social icons
-- Usage: `<Icon name="fa-brands:github" />` or `<Icon name="academicons:google-scholar" />`
+- Usage: `import IconGithub from '~icons/fa-brands/github'` → `<IconGithub />` (unknown name = build error)
+- Data-driven icons: put the component in the data — `{ Icon: IconGithub }` → `<item.Icon />`
 
 ### BibTeX
 
@@ -122,18 +123,18 @@ yarn format         # Prettier
 
 ## Common pitfalls
 
-| Issue                        | Fix                                                                                                              |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `render()` error             | Use `const { Content } = await render(entry)` (Astro 6 API)                                                      |
-| YAML number parsed as string | Use `z.coerce.string()` in schema                                                                                |
-| Dark mode flash              | Ensure `<script is:inline>` with `localStorage` check is in `<head>` before CSS                                  |
-| Nested `<a>` elements        | Use `data-href` + JS click handler for clickable cards; inner links stay real `<a>`                              |
-| `as const` type error        | Use `as 'literal'` type assertion for string union fields in site config                                         |
-| ISBN coercion                | Always `z.coerce.string()` for isbn/olid fields                                                                  |
-| Icon not found at build      | Add new icon names to the `icon.include['fa-solid']` array in `astro.config.mjs`                                 |
-| Hardcoded persona string     | Never embed persona names (e.g. `'einstein'`) in components — pass all user-visible text as props from `site.ts` |
+| Issue                        | Fix                                                                                                                                                                                              |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `render()` error             | Use `const { Content } = await render(entry)` (Astro 6 API)                                                                                                                                      |
+| YAML number parsed as string | Use `z.coerce.string()` in schema                                                                                                                                                                |
+| Dark mode flash              | Ensure `<script is:inline>` with `localStorage` check is in `<head>` before CSS                                                                                                                  |
+| Nested `<a>` elements        | Use `data-href` + JS click handler for clickable cards; inner links stay real `<a>`                                                                                                              |
+| `as const` type error        | Use `as 'literal'` type assertion for string union fields in site config                                                                                                                         |
+| ISBN coercion                | Always `z.coerce.string()` for isbn/olid fields                                                                                                                                                  |
+| Icon not found at build      | Import it as `~icons/<collection>/<name>`; an unknown name is a build error, not a silent warning                                                                                                |
+| Hardcoded persona string     | Never embed persona names (e.g. `'einstein'`) in components — pass all user-visible text as props from `site.ts`                                                                                 |
 | Image zoom stuck / no close  | medium-zoom only attaches to `img[data-zoomable]`; use `<Figure zoomable />` to opt in. The `transitionend` failsafe (400ms timeout) handles environments where the CSS transition doesn't fire. |
-| BibTeX field shows in cite   | Add the field name to `BIBTEX_INTERNAL_FIELDS` in `src/utils/bibtex.ts` so it's stripped from the copyable citation block. |
+| BibTeX field shows in cite   | Add the field name to `BIBTEX_INTERNAL_FIELDS` in `src/utils/bibtex.ts` so it's stripped from the copyable citation block.                                                                       |
 
 ---
 

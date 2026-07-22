@@ -2,11 +2,11 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
+import Icons from 'unplugin-icons/vite';
 
 /**
  * Remark plugin: rewrite root-relative src/href inside raw HTML blocks in .md files.
@@ -92,108 +92,13 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
-    icon({
-      include: {
-        'fa-brands': [
-          'twitter',
-          'linkedin',
-          'github',
-          'gitlab',
-          'youtube',
-          'medium',
-          'mastodon',
-          'discord',
-          'whatsapp',
-          'telegram',
-          'weibo',
-          'instagram',
-          'facebook',
-          'pinterest',
-        ],
-        'fa-solid': [
-          'envelope',
-          'file-pdf',
-          'rss',
-          'moon',
-          'sun',
-          'bars',
-          'times',
-          'certificate',
-          'code',
-          'quote-left',
-          'chevron-up',
-          'search',
-          'link',
-          'star',
-          'book',
-          'graduation-cap',
-          'user',
-          'users',
-          'building',
-          'calendar',
-          'tag',
-          'tags',
-          'newspaper',
-          'chalkboard-teacher',
-          'flask',
-          'award',
-          'language',
-          'briefcase',
-          'globe',
-          'info-circle',
-          'video',
-          'music',
-          'map-pin',
-          'hashtag',
-          'magnifying-glass',
-          'thumbtack',
-          'external-link-alt',
-          'circle-arrow-right',
-          'book-open',
-          'check',
-          'clock',
-          'pause',
-          'eye',
-          'redo',
-          'share-alt',
-        ],
-        'fa-regular': ['comment', 'star', 'bookmark', 'heart'],
-        academicons: [
-          'google-scholar',
-          'orcid',
-          'researchgate',
-          'inspire',
-          'arxiv',
-          'hal',
-          'semantic-scholar',
-          'ieee',
-          'acm',
-          'springer',
-          'elsevier',
-          'pubmed',
-          'clarivate',
-          'zotero',
-          'mendeley',
-          'academia',
-          'cv',
-          'figshare',
-          'zenodo',
-          'dataverse',
-          'open-access',
-          'open-data',
-          'open-materials',
-          'osf',
-          'overleaf',
-          'impactstory',
-          'scirate',
-          'isidore',
-          'hypothesis',
-        ],
-      },
-    }),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    // Icons are provided by unplugin-icons: each icon is a static
+    // `~icons/<collection>/<name>` import compiled to a zero-JS inline SVG.
+    // An unknown icon name fails the build (unresolved import) instead of a
+    // silent warning, so there is no hand-maintained include list to drift.
+    plugins: [tailwindcss(), Icons({ compiler: 'astro' })],
     resolve: {
       alias: {
         '@components': '/src/components',

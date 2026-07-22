@@ -80,7 +80,6 @@
     "@iconify-json/fa-solid": "^1.2.2",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^6.4.8",
-    "astro-icon": "^1.1.5",
     "js-yaml": "^4.2.0",
     "medium-zoom": "^1.1.0",
     "ninja-keys": "^1.2.2",
@@ -91,7 +90,8 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "satori": "^0.26.0",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "unplugin-icons": "^23.0.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

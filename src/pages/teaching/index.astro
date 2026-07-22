@@ -2,7 +2,8 @@
 import { site } from '@config/site';
 import Page from '@layouts/Page.astro';
 import { getCollection, render } from 'astro:content';
-import { Icon } from 'astro-icon/components';
+
+import IconCalendar from '~icons/fa-solid/calendar';
 
 const all = await getCollection('teaching');
 
@@ -45,7 +46,7 @@ const timezone = site.teaching.timezone;
         calendarId && (
           <div class="post mt-4">
             <h2 class="mb-3">
-              <Icon name="fa-solid:calendar" style="font-size: 0.9em; margin-right: 0.4em;" />
+              <IconCalendar style="font-size: 0.9em; margin-right: 0.4em;" />
               Upcoming Events
             </h2>
             <button

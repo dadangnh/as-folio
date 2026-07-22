@@ -1,5 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
+import IconFacebook from '~icons/fa-brands/facebook';
+import IconLinkedin from '~icons/fa-brands/linkedin';
+import IconTwitter from '~icons/fa-brands/twitter';
+import IconEnvelope from '~icons/fa-solid/envelope';
+import IconShareAlt from '~icons/fa-solid/share-alt';
 
 interface Props {
   title: string;
@@ -19,22 +23,22 @@ const shareLinks = [
   {
     name: 'X (Twitter)',
     href: `https://twitter.com/intent/tweet?text=${enc.title}&url=${enc.url}`,
-    icon: 'fa-brands:twitter',
+    Icon: IconTwitter,
   },
   {
     name: 'LinkedIn',
     href: `https://www.linkedin.com/shareArticle?mini=true&url=${enc.url}&title=${enc.title}`,
-    icon: 'fa-brands:linkedin',
+    Icon: IconLinkedin,
   },
   {
     name: 'Facebook',
     href: `https://www.facebook.com/sharer/sharer.php?u=${enc.url}`,
-    icon: 'fa-brands:facebook',
+    Icon: IconFacebook,
   },
   {
     name: 'Email',
     href: `mailto:?subject=${enc.title}&body=${enc.description}%0A%0A${enc.url}`,
-    icon: 'fa-solid:envelope',
+    Icon: IconEnvelope,
   },
 ];
 ---
@@ -43,7 +47,7 @@ const shareLinks = [
   <p class="share-label">Share</p>
   <div class="share-icons">
     {
-      shareLinks.map(({ name, href, icon }) => (
+      shareLinks.map(({ name, href, Icon }) => (
         <a
           href={href}
           target="_blank"
@@ -52,7 +56,7 @@ const shareLinks = [
           title={`Share on ${name}`}
           class="share-link"
         >
-          <Icon name={icon} aria-hidden="true" />
+          <Icon aria-hidden="true" />
         </a>
       ))
     }
@@ -63,7 +67,7 @@ const shareLinks = [
       class="share-link share-native"
       hidden
     >
-      <Icon name="fa-solid:share-alt" aria-hidden="true" />
+      <IconShareAlt aria-hidden="true" />
     </button>
   </div>
 </div>

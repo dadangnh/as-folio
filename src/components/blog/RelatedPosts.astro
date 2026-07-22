@@ -1,7 +1,8 @@
 ---
 import { site } from '@config/site';
 import type { CollectionEntry } from 'astro:content';
-import { Icon } from 'astro-icon/components';
+
+import IconCalendar from '~icons/fa-solid/calendar';
 
 interface Props {
   posts: CollectionEntry<'posts'>[];
@@ -29,7 +30,7 @@ if (posts.length === 0) return;
               {post.data.title}
             </a>
             <div class="related-meta">
-              <Icon name="fa-solid:calendar" />
+              <IconCalendar />
               <time datetime={post.data.date.toISOString()}>{date}</time>
               {post.data.tags.length > 0 && (
                 <>

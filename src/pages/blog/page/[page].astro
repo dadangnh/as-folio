@@ -5,7 +5,12 @@ import { site } from '@config/site';
 import PageLayout from '@layouts/Page.astro';
 import { readingTime } from '@utils/reading-time';
 import { getCollection } from 'astro:content';
-import { Icon } from 'astro-icon/components';
+
+import IconCalendar from '~icons/fa-solid/calendar';
+import IconHashtag from '~icons/fa-solid/hashtag';
+import IconTag from '~icons/fa-solid/tag';
+import IconTags from '~icons/fa-solid/tags';
+import IconThumbtack from '~icons/fa-solid/thumbtack';
 
 export async function getStaticPaths() {
   const allPosts = (await getCollection('posts'))
@@ -65,7 +70,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
         displayTags.map((tag, i) => (
           <>
             <li>
-              <Icon name="fa-solid:hashtag" /> <a href={`${base}/blog/tag/${tag}/`}>{tag}</a>
+              <IconHashtag /> <a href={`${base}/blog/tag/${tag}/`}>{tag}</a>
             </li>
             {i < displayTags.length - 1 && <p>&bull;</p>}
           </>
@@ -76,7 +81,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
         displayCategories.map((cat, i) => (
           <>
             <li>
-              <Icon name="fa-solid:tag" /> <a href={`${base}/blog/category/${cat}/`}>{cat}</a>
+              <IconTag /> <a href={`${base}/blog/category/${cat}/`}>{cat}</a>
             </li>
             {i < displayCategories.length - 1 && <p>&bull;</p>}
           </>
@@ -84,7 +89,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
       }
       {(displayTags.length > 0 || displayCategories.length > 0) && <p>&bull;</p>}
       <li>
-        <Icon name="fa-solid:tags" />{' '}
+        <IconTags />{' '}
         <a href={`${base}/blog/tags/`}>all tags</a>
       </li>
     </ul>
@@ -108,7 +113,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
                         <div class="col-md-12">
                           <div class="card-body">
                             <div class="float-right">
-                              <Icon name="fa-solid:thumbtack" style="font-size:0.75rem;" />
+                              <IconThumbtack style="font-size:0.75rem;" />
                             </div>
                             <h3 class="card-title text-lowercase">{post.data.title}</h3>
                             {post.data.description && (
@@ -117,7 +122,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
                             <p class="post-meta">
                               {mins} min read &nbsp;&middot;&nbsp;
                               <span>
-                                <Icon name="fa-solid:calendar" style="font-size:0.75rem;" /> {year}
+                                <IconCalendar style="font-size:0.75rem;" /> {year}
                               </span>
                             </p>
                           </div>
