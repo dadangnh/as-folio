@@ -67,6 +67,7 @@
     "citations:update": "node --strip-types scripts/update-citations.ts"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "7.2.0",
     "@astrojs/mdx": "^6.0.0",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.7",

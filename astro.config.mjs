@@ -1,3 +1,4 @@
+import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
@@ -123,18 +124,20 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkMath, remarkBasePaths],
-    rehypePlugins: [
-      [rehypeKatex, { strict: false }],
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          rel: ['noopener', 'noreferrer'],
-        },
+    processor: unified({
+      remarkPlugins: [remarkMath, remarkBasePaths],
+      rehypePlugins: [
+        [rehypeKatex, { strict: false }],
+        [
+          rehypeExternalLinks,
+          {
+            target: '_blank',
+            rel: ['noopener', 'noreferrer'],
+          },
+        ],
+        rehypeBasePaths,
       ],
-      rehypeBasePaths,
-    ],
+    }),
     syntaxHighlight: 'shiki',
     shikiConfig: {
       themes: {
