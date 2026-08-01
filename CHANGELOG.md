@@ -7,6 +7,22 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.0](https://github.com/dadangnh/as-folio/compare/v1.2.2...v2.0.0) (2026-08-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **icons:** custom icons must move from `<Icon name="col:name" />` + astro.config `icon.include` to a `~icons/col/name` import. Default icon size is now 1.2em (unplugin default); add `scale: 1` to restore 1em.
+
+### refactor
+
+* **icons:** replace astro-icon with unplugin-icons ([#11](https://github.com/dadangnh/as-folio/issues/11)) ([623f890](https://github.com/dadangnh/as-folio/commit/623f8900f01840277a44307161a3be8beaf161cd))
+
+
+### Bug Fixes
+
+* **theme:** honor site theme.color, add hover config ([#10](https://github.com/dadangnh/as-folio/issues/10)) ([2f1cd36](https://github.com/dadangnh/as-folio/commit/2f1cd366a2802acc0d8cced90b2b51b7c71141d6))
+
 ## [1.2.2](https://github.com/dadangnh/as-folio/compare/v1.2.1...v1.2.2) (2026-07-17)
 
 
