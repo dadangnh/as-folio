@@ -42,7 +42,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "astro": ">=6.0.0"
+    "astro": ">=6.4.0"
   },
   "scripts": {
     "dev": "astro dev",

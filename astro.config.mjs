@@ -1,3 +1,4 @@
+// Pinned to 7.2.0 (7.2.1 breaks Shiki in mdx blocks) — bump with astro.
 import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';

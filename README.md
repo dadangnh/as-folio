@@ -87,7 +87,7 @@ For project pages, keep `ASTRO_SITE` as the site origin, for example
 ### Option B — Local development
 
 ```bash
-# Prerequisites: Node 24+, Corepack enabled
+# Prerequisites: Node 24+, Astro 6.4+, Corepack enabled
 corepack enable
 
 # Clone
@@ -308,7 +308,7 @@ Already configured in `vercel.json`. Connect your repo in Vercel dashboard.
 
 | Layer           | Technology                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| Framework       | [Astro 6](https://astro.build)                                                           |
+| Framework       | [Astro 6.4+](https://astro.build)                                                        |
 | CSS             | [Tailwind CSS v4](https://tailwindcss.com)                                               |
 | Types           | TypeScript (strict)                                                                      |
 | Math            | KaTeX via remark-math + rehype-katex                                                     |

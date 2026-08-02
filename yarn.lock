@@ -3604,7 +3604,7 @@ __metadata:
     unplugin-icons: "npm:^23.0.1"
     vitest: "npm:^4.1.9"
   peerDependencies:
-    astro: ">=6.0.0"
+    astro: ">=6.4.0"
   languageName: unknown
   linkType: soft
 
