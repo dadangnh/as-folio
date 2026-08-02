@@ -7,6 +7,13 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.1](https://github.com/dadangnh/as-folio/compare/v2.0.0...v2.0.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* **config:** move markdown plugins onto the unified() processor ([#13](https://github.com/dadangnh/as-folio/issues/13)) ([ff08be6](https://github.com/dadangnh/as-folio/commit/ff08be6d746e48f71ff798d7d58e788e78742d5b))
+
 ## [2.0.0](https://github.com/dadangnh/as-folio/compare/v1.2.2...v2.0.0) (2026-08-01)
 
 
