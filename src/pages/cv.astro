@@ -6,7 +6,7 @@ import Page from '@layouts/Page.astro';
 import { withBase } from '@utils/base';
 import type { JSONResume, RenderCV, RenderCVEntry } from '@utils/cv';
 import { formatCVDate, formatDateRange } from '@utils/cv';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 
 import IconFilePdf from '~icons/fa-solid/file-pdf';
 

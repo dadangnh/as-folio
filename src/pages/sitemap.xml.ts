@@ -15,6 +15,7 @@
 import { spawnSync } from 'node:child_process';
 
 import { site } from '@config/site';
+import { buildDate } from '@utils/date';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 
@@ -68,7 +69,7 @@ export async function GET(_ctx: APIContext): Promise<Response> {
     getCollection('projects', (p) => !p.data.redirect),
   ]);
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = buildDate().toISOString().split('T')[0];
 
   // Static pages: git date of their source file.
   // Homepage falls back to today (it aggregates live content so build-date is legitimate).

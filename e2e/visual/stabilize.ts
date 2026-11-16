@@ -11,6 +11,17 @@ export const EXTERNAL_IMAGE_HOSTS: string[] = [
   'github-readme-stats.vercel.app',
   'github-profile-trophy.vercel.app',
   'covers.openlibrary.org',
+  // Citation badges: width depends on the live count label
+  'img.shields.io',
+];
+
+// Third-party badge scripts whose injected content depends on the network. Blocked so the
+// (masked) containers always render empty.
+export const BLOCKED_HOSTS: string[] = [
+  'd1bxh8uas1mnw7.cloudfront.net', // Altmetric embed
+  'api.altmetric.com',
+  'badge.dimensions.ai',
+  'metrics-api.dimensions.ai',
 ];
 
 export const MASK_SELECTORS: string[] = [
@@ -63,6 +74,19 @@ export async function prepare(page: Page, theme: 'light' | 'dark'): Promise<void
       body: JSON.stringify({ stargazers_count: 12345 }),
     });
   });
+
+  // InspireHEP citation counts are fetched client-side (InspireHEPBadge); serve a fixed count
+  await page.route('https://inspirehep.net/api/**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ metadata: { citation_count: 1234 } }),
+    });
+  });
+
+  for (const host of BLOCKED_HOSTS) {
+    await page.route(`**://${host}/**`, (route) => route.abort());
+  }
 
   for (const host of EXTERNAL_IMAGE_HOSTS) {
     await page.route(`**://${host}/**`, async (route) => {

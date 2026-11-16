@@ -1,0 +1,250 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`src/data YAML > coauthors.yml parses to the snapshot 1`] = `
+{
+  "Bohr": {
+    "url": "https://en.wikipedia.org/wiki/Niels_Bohr",
+  },
+  "Bose": {
+    "url": "https://en.wikipedia.org/wiki/Satyendra_Nath_Bose",
+  },
+  "Einstein": {
+    "scholar": "qc6CJjYAAAAJ",
+    "url": "https://en.wikipedia.org/wiki/Albert_Einstein",
+  },
+  "Planck": {
+    "url": "https://en.wikipedia.org/wiki/Max_Planck",
+  },
+  "Podolsky": {
+    "url": "https://en.wikipedia.org/wiki/Boris_Podolsky",
+  },
+  "Rosen": {
+    "url": "https://en.wikipedia.org/wiki/Nathan_Rosen",
+  },
+}
+`;
+
+exports[`src/data YAML > cv.yml parses to the snapshot 1`] = `
+{
+  "cv": {
+    "email": "einstein@example.com",
+    "location": "Princeton, NJ",
+    "name": "Albert Einstein",
+    "phone": "tel:+1-000-000-0000",
+    "sections": {
+      "awards": [
+        {
+          "date": "1921",
+          "highlights": [
+            "For services to theoretical physics, and especially for his discovery of the law of the photoelectric effect",
+          ],
+          "issuer": "Royal Swedish Academy of Sciences",
+          "name": "Nobel Prize in Physics",
+        },
+        {
+          "date": "1925",
+          "issuer": "Royal Society",
+          "name": "Copley Medal",
+        },
+        {
+          "date": "1929",
+          "issuer": "German Physical Society",
+          "name": "Max Planck Medal",
+        },
+      ],
+      "education": [
+        {
+          "area": "Physics",
+          "degree": "PhD",
+          "end_date": 1905,
+          "highlights": [
+            "Thesis: "A New Determination of Molecular Dimensions"",
+            "Supervisor: Alfred Kleiner",
+          ],
+          "institution": "University of Zurich",
+          "start_date": 1900,
+        },
+        {
+          "area": "Mathematics and Physics Teaching Diploma",
+          "degree": "Diploma",
+          "end_date": 1900,
+          "institution": "ETH Zurich",
+          "start_date": 1896,
+        },
+      ],
+      "experience": [
+        {
+          "company": "Institute for Advanced Study",
+          "end_date": "present",
+          "highlights": [
+            "Developed unified field theory research program",
+            "Mentored generations of physicists and mathematicians",
+            "Contributed to foundations of quantum mechanics debates",
+          ],
+          "location": "Princeton, NJ",
+          "position": "Professor",
+          "start_date": 1933,
+        },
+        {
+          "company": "University of Berlin",
+          "end_date": 1933,
+          "highlights": [
+            "Developed the general theory of relativity (1915)",
+            "Predicted gravitational waves and black holes",
+            "Awarded Nobel Prize in Physics (1921)",
+          ],
+          "location": "Berlin, Germany",
+          "position": "Professor and Director",
+          "start_date": 1914,
+        },
+        {
+          "company": "University of Zurich",
+          "end_date": 1911,
+          "location": "Zurich, Switzerland",
+          "position": "Associate Professor",
+          "start_date": 1909,
+        },
+        {
+          "company": "Swiss Patent Office",
+          "end_date": 1909,
+          "highlights": [
+            "Evaluated patent applications while conducting independent research",
+            "Published four landmark papers in 1905 (Annus Mirabilis)",
+          ],
+          "location": "Bern, Switzerland",
+          "position": "Technical Expert (Third Class)",
+          "start_date": 1902,
+        },
+      ],
+      "interests": [
+        {
+          "details": "Violin, Mozart, Bach",
+          "label": "Music",
+        },
+        {
+          "details": "Spinoza, Mach, Kant",
+          "label": "Philosophy",
+        },
+        {
+          "details": "Long Island Sound, Swiss lakes",
+          "label": "Sailing",
+        },
+      ],
+      "publications": [
+        {
+          "authors": [
+            "Albert Einstein",
+          ],
+          "date": "1905-06",
+          "doi": "10.1002/andp.19053221004",
+          "journal": "Annalen der Physik",
+          "title": "On the Electrodynamics of Moving Bodies",
+        },
+        {
+          "authors": [
+            "Albert Einstein",
+          ],
+          "date": "1905-09",
+          "doi": "10.1002/andp.19053231314",
+          "journal": "Annalen der Physik",
+          "title": "Does the Inertia of a Body Depend Upon Its Energy Content?",
+        },
+        {
+          "authors": [
+            "Albert Einstein",
+            "Boris Podolsky",
+            "Nathan Rosen",
+          ],
+          "date": "1935-05",
+          "doi": "10.1103/PhysRev.47.777",
+          "journal": "Physical Review",
+          "title": "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?",
+        },
+        {
+          "authors": [
+            "Albert Einstein",
+          ],
+          "date": "1915-11",
+          "journal": "Prussian Academy of Sciences",
+          "title": "On the General Theory of Relativity",
+        },
+      ],
+      "skills": [
+        {
+          "details": "General Relativity, Special Relativity, Quantum Mechanics, Statistical Mechanics",
+          "label": "Theoretical Physics",
+        },
+        {
+          "details": "Differential Geometry, Tensor Calculus, Riemannian Geometry",
+          "label": "Mathematics",
+        },
+        {
+          "details": "German (native), English (fluent), French (proficient)",
+          "label": "Languages",
+        },
+      ],
+    },
+    "social_networks": [
+      {
+        "network": "GitHub",
+        "username": "example",
+      },
+      {
+        "network": "LinkedIn",
+        "username": "example",
+      },
+    ],
+    "summary": "A German-born theoretical physicist widely regarded as one of the greatest scientists of all time. Best known for developing the theory of relativity, the most important pillar along with quantum mechanics of modern physics.",
+    "website": "https://example.github.io",
+  },
+}
+`;
+
+exports[`src/data YAML > dump with the update-citations options keeps its format 1`] = `
+"a:paper-1: 7
+b:paper-2: 1200
+c:long id with spaces: 0
+"
+`;
+
+exports[`src/data YAML > repositories.yml parses to the snapshot 1`] = `
+{
+  "github_repos": [
+    "dadangnh/as-folio",
+    "torvalds/linux",
+    "git/git",
+    "python/cpython",
+    "astro/astro",
+    "tailwindlabs/tailwindcss",
+  ],
+  "github_users": [
+    "torvalds",
+    "dadangnh",
+  ],
+  "repo_description_lines_max": 2,
+}
+`;
+
+exports[`src/data YAML > venues.yml parses to the snapshot 1`] = `
+{
+  "ACL": "Annual Meeting of the Association for Computational Linguistics",
+  "Ann. Phys.": "Annalen der Physik",
+  "CVPR": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+  "ECCV": "European Conference on Computer Vision",
+  "EMNLP": "Empirical Methods in Natural Language Processing",
+  "ICCV": "International Conference on Computer Vision",
+  "ICLR": "International Conference on Learning Representations",
+  "ICML": "International Conference on Machine Learning",
+  "J. Franklin Inst.": "Journal of the Franklin Institute",
+  "JMLR": "Journal of Machine Learning Research",
+  "Nature": "Nature",
+  "Naturwissenschaften": "Naturwissenschaften",
+  "NeurIPS": "Advances in Neural Information Processing Systems",
+  "Phys. Rev.": "Physical Review",
+  "Phys. Rev. Lett.": "Physical Review Letters",
+  "Phys. Z.": "Physikalische Zeitschrift",
+  "Science": "Science",
+  "Z. Phys.": "Zeitschrift für Physik",
+  "arXiv": "arXiv preprint",
+}
+`;

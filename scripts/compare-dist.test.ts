@@ -99,5 +99,15 @@ describe('compare-dist', () => {
       fs.writeFileSync(path.join(dirB, 'og', 'x.png'), Buffer.from([0x89, 0x50, 0xff, 0xfd]));
       expect(compareDist(dirA, dirB).changed).toEqual(['og/x.png']);
     });
+
+    it('byte-compares optimised images in _astro/ but not JS chunks', () => {
+      fs.mkdirSync(path.join(dirA, '_astro'), { recursive: true });
+      fs.mkdirSync(path.join(dirB, '_astro'), { recursive: true });
+      fs.writeFileSync(path.join(dirA, '_astro', 'photo.Ab12Cd34_Z1abcd.webp'), 'pixels A');
+      fs.writeFileSync(path.join(dirB, '_astro', 'photo.Ab12Cd34_Z1abcd.webp'), 'pixels B');
+      fs.writeFileSync(path.join(dirA, '_astro', 'page.Ab12Cd34.js'), 'let a');
+      fs.writeFileSync(path.join(dirB, '_astro', 'page.Ab12Cd34.js'), 'var a');
+      expect(compareDist(dirA, dirB).changed).toEqual(['_astro/photo.Ab12Cd34_Z1abcd.webp']);
+    });
   });
 });

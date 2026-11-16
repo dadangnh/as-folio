@@ -1,9 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { expect, test } from '@playwright/test';
 
 import defaultPlaywrightConfig from '../../playwright.config';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 test.describe('Default config isolation', () => {
   test('default config ignores visual suite', () => {
@@ -52,6 +55,19 @@ test.describe('Open Graph images', () => {
   }
 
   const ogFiles = collectPngFiles(distOgDir, distOgDir);
+
+  // The per-file tests below are generated from dist/, so a missing or extra OG image would
+  // silently change the test count. Pin the set itself against the committed baselines.
+  test('OG image set matches the baselines', () => {
+    test.skip(
+      ['all', 'changed'].includes(test.info().config.updateSnapshots),
+      'baselines are being regenerated',
+    );
+    const baselineDir = path.join(__dirname, '__screenshots__', 'desktop', 'og.visual.ts', 'og');
+    const rel = (files: { relPath: string }[]) => files.map((f) => f.relPath).sort();
+    expect(ogFiles.length).toBeGreaterThan(0);
+    expect(rel(ogFiles)).toEqual(rel(collectPngFiles(baselineDir, baselineDir)));
+  });
 
   for (const file of ogFiles) {
     const relSegments = file.relPath.split(path.sep);

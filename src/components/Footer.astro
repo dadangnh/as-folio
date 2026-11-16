@@ -1,8 +1,10 @@
 ---
 import { site } from '@config/site';
+import { buildDate } from '@utils/date';
 
-const year = new Date().getFullYear();
-const lastUpdated = new Date().toLocaleDateString('en-US', {
+const now = buildDate();
+const year = now.getFullYear();
+const lastUpdated = now.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',

@@ -87,7 +87,7 @@
     "@iconify-json/fa-solid": "^1.2.2",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^7.4.11",
-    "js-yaml": "^4.3.2",
+    "js-yaml": "^5",
     "katex": "0.16.42",
     "medium-zoom": "^1.1.2",
     "ninja-keys": "^1.2.2",
@@ -97,9 +97,9 @@
     "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "satori": "^0.26.0",
-    "sharp": "^0.34.5",
-    "unplugin-icons": "^23.0.1"
+    "satori": "0.32.0",
+    "sharp": "^0.35.5",
+    "unplugin-icons": "^24"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
@@ -111,7 +111,6 @@
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
-    "@types/js-yaml": "^4.0.9",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

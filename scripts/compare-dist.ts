@@ -1,7 +1,8 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 import { createHash } from 'crypto';
 import * as fs from 'fs';
 import * as path from 'path';
+import { pathToFileURL } from 'url';
 
 export type DistDiff = {
   onlyInA: string[];
@@ -169,6 +170,17 @@ export function compareDist(distA: string, distB: string): DistDiff {
     }
   }
 
+  // Non-JS/CSS assets (optimised images, fonts) keep a stable name across builds because
+  // Astro hashes their *inputs*, so an encoder change would not rename them: compare bytes.
+  for (const [norm, origsA] of normAssetA.entries()) {
+    const origsB = normAssetB.get(norm);
+    if (!origsB || origsA.length !== 1 || origsB.length !== 1) continue;
+    if (/\.(js|css)$/.test(origsA[0])) continue;
+    const a = fs.readFileSync(path.join(distA, origsA[0]));
+    const b = fs.readFileSync(path.join(distB, origsB[0]));
+    if (!a.equals(b)) changed.push(origsB[0]);
+  }
+
   // CSS bundles have hash-only names that cannot be paired across builds, so compare
   // the multiset of their content digests instead: any stylesheet change is reported.
   if (cssDigests(distA, assetFilesA) !== cssDigests(distB, assetFilesB)) {
@@ -276,6 +288,6 @@ function main(): void {
 }
 
 // Run CLI when executed directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href) {
   main();
 }

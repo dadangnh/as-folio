@@ -832,3 +832,5 @@ bun run test:visual:docker --update   # regenerate baselines
 ```
 
 `bun run test:all` does not run them.
+
+The suite builds with `SOURCE_DATE_EPOCH=1767225600` (2026-01-01) so the footer year in the baselines does not change at New Year. Any build honours `SOURCE_DATE_EPOCH` for build-time dates (footer year, "last updated", sitemap); unset, the current date is used. Run on another architecture with `VISUAL_PLATFORM=linux/amd64`.

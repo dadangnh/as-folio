@@ -27,3 +27,18 @@ export function isoDate(date: Date | string | number): string {
 export function shortDate(date: Date | string | number): string {
   return formatDate(date, { year: 'numeric', month: 'short' });
 }
+
+/**
+ * The "current" date for build-time output (footer year, "last updated", sitemap).
+ *
+ * Honours the reproducible-builds convention `SOURCE_DATE_EPOCH` (Unix seconds) so a
+ * build can be pinned to a fixed date — the visual regression suite uses this so its
+ * baselines do not change when the calendar year does. Falls back to the real clock.
+ *
+ * @param env - Environment to read (defaults to `process.env`)
+ */
+export function buildDate(env: Record<string, string | undefined> = process.env): Date {
+  const epoch = env.SOURCE_DATE_EPOCH;
+  if (epoch && /^\d+$/.test(epoch)) return new Date(Number(epoch) * 1000);
+  return new Date();
+}

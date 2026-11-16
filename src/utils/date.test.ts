@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatDate, isoDate, shortDate } from './date';
+import { buildDate, formatDate, isoDate, shortDate } from './date';
 
 describe('formatDate', () => {
   it('formats a Date object to "Month Day, Year"', () => {
@@ -54,5 +54,22 @@ describe('shortDate', () => {
 
   it('accepts a date string', () => {
     expect(shortDate('2024-11-01')).toMatch(/Nov 2024/);
+  });
+});
+
+describe('buildDate', () => {
+  it('uses SOURCE_DATE_EPOCH when set', () => {
+    expect(buildDate({ SOURCE_DATE_EPOCH: '1767225600' }).toISOString()).toBe(
+      '2026-01-01T00:00:00.000Z',
+    );
+  });
+
+  it('falls back to the current time when unset or invalid', () => {
+    const before = Date.now();
+    for (const env of [{}, { SOURCE_DATE_EPOCH: '' }, { SOURCE_DATE_EPOCH: 'soon' }]) {
+      const t = buildDate(env).getTime();
+      expect(t).toBeGreaterThanOrEqual(before);
+      expect(t).toBeLessThanOrEqual(Date.now());
+    }
   });
 });

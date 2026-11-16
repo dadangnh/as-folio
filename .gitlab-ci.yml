@@ -8,7 +8,6 @@ image: oven/bun:1.4.3
 #               Leave unset for user/group pages (username.gitlab.io)
 # ──────────────────────────────────────────────────────────────────────────────
 variables:
-  NODE_ENV: production
   HUSKY: '0'
   BUN_INSTALL_CACHE_DIR: .bun-cache
   ASTRO_SITE: https://username.gitlab.io
@@ -50,6 +49,10 @@ unit-test:
 build:
   stage: build
   interruptible: true
+  # Production mode only for the site build: a global NODE_ENV=production would make
+  # installs and unit tests behave like production (e.g. React's production build in vitest).
+  variables:
+    NODE_ENV: production
   script:
     - bun run build
   artifacts:

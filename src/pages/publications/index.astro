@@ -5,7 +5,7 @@ import Page from '@layouts/Page.astro';
 import type { CoauthorMap } from '@utils/authors';
 import { withBase } from '@utils/base';
 import { getAuthors, getTitle, getVenue, parseBibtex } from '@utils/bibtex';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 
 import citationsRaw from '../../data/citations.yml?raw';
 import coauthorsRaw from '../../data/coauthors.yml?raw';
