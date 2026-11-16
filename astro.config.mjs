@@ -145,6 +145,11 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
+      // Preload grammars that other grammars embed (mdx/astro/html/markdown code blocks).
+      // Shiki only highlights an embedded language if its grammar is already loaded, and
+      // Astro otherwise loads grammars lazily in page-build order, which made output depend
+      // on build scheduling (see docs/2026-11-15-bun-spike.md in the workspace).
+      langs: ['javascript', 'typescript', 'jsx', 'tsx', 'css', 'html', 'json', 'yaml', 'markdown'],
     },
   },
 });

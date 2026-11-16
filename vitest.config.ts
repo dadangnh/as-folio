@@ -19,7 +19,7 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: ['./vitest.setup.ts'],
-    include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],
+    include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}', 'scripts/**/*.{test,spec}.{js,jsx,ts,tsx}'],
     css: false,
     reporters: ['default', ['junit', { suiteName: 'Unit Tests' }]],
     outputFile: {

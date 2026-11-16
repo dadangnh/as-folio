@@ -49,6 +49,7 @@
     "start": "astro dev",
     "prebuild": "node --strip-types scripts/update-citations.ts",
     "build": "astro build --timings && pagefind --site dist",
+    "build:verify": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -61,10 +62,14 @@
     "test:types": "astro check && tsc --noEmit",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test --reporter=junit",
+    "test:visual": "playwright test -c playwright.visual.config.ts",
+    "test:visual:update": "playwright test -c playwright.visual.config.ts --update-snapshots",
+    "test:visual:docker": "bash scripts/visual-docker.sh",
     "test:all": "yarn test:types && yarn lint:ci && yarn test && yarn test:e2e",
     "validate": "yarn test:all",
     "prepare": "husky",
-    "citations:update": "node --strip-types scripts/update-citations.ts"
+    "citations:update": "node --strip-types scripts/update-citations.ts",
+    "compare:dist": "node --strip-types scripts/compare-dist.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.2.0",

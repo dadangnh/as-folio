@@ -98,17 +98,17 @@ const jsonLd = {
             </html> are in the browser's error-recovery zone where defer order is NOT
             guaranteed — that's why these must live in <head>. */}
         <script is:inline
-          src="https://cdn.jsdelivr.net/npm/vega@5"
+          src="https://cdn.jsdelivr.net/npm/vega@5.33.1"
           integrity="sha384-NMXhl2TbCXxcN7o4ROC56Funm78m4AylL8gMg/7Kn4YU+wrm23K9l7cY8lDRXQ9d"
           crossorigin="anonymous"
           defer></script>
         <script is:inline
-          src="https://cdn.jsdelivr.net/npm/vega-lite@5"
+          src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"
           integrity="sha384-D9LYH0esGjcxQJsBuxOuXtCDJGXRWW1+KhluzWPqi0rLJmiR/ygPChefaD+rFFDQ"
           crossorigin="anonymous"
           defer></script>
         <script is:inline
-          src="https://cdn.jsdelivr.net/npm/vega-embed@6"
+          src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"
           integrity="sha384-M+Ax7e/WFJpxSOF09HzI+Sj4wg9ottVd/uxmV2ItGGh02fLH28t2FAOJx3TJBap5"
           crossorigin="anonymous"
           defer></script>
@@ -283,7 +283,7 @@ const jsonLd = {
         On each page-load (hard or View Transitions), destroy any previous instance and re-render. */}
     <script is:inline>
       document.addEventListener('astro:page-load', function () {
-        import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+        import('https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs')
           .then(function (mod) {
             var mermaid = mod.default;
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -308,7 +308,7 @@ const jsonLd = {
 
 {chart_js && (
   <script
-    src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
     integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"
     crossorigin="anonymous"
     defer></script>
@@ -316,7 +316,7 @@ const jsonLd = {
 
 {echarts && (
   <script
-    src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"
+    src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"
     integrity="sha384-pPi0zxBAoDu6+JXW/C68UZLvBUUtU+7zonhif43rqj7pxsGyqyqzcian2Rj37Rss"
     crossorigin="anonymous"
     defer></script>
@@ -326,7 +326,7 @@ const jsonLd = {
 
 {plotly && (
   <script
-    src="https://cdn.jsdelivr.net/npm/plotly.js@2/dist/plotly.min.js"
+    src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.3/dist/plotly.min.js"
     integrity="sha384-MqL7Cy3itNqCI1Wlc926K0XhyRKJ/NMqTaytIIEB+QIdInOploxqRIHRKLlhPykM"
     crossorigin="anonymous"
     defer></script>
@@ -422,12 +422,12 @@ const jsonLd = {
   <>
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+      src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.7/dist/index.js"
       integrity="sha384-FCXElAg99YO+h+5Ky3gZ9cVwc8wyg6sq3jn79ugH0u5jh0NR5cvr0hGP+tzpjI+A"
       crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.7/dist/styles.css"
       integrity="sha384-TYCxyqTqCrHZ0yHG2B7VENYnxnIBGWt8GHLLkGegAYCw+1UkvUd0YpsVPrt+8//z"
       crossorigin="anonymous"
     />
@@ -455,7 +455,7 @@ const jsonLd = {
   <>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css"
+      href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
       integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE"
       crossorigin="anonymous"
     />
@@ -469,14 +469,14 @@ const jsonLd = {
           window.__pswpLightbox = null;
         }
         if (!document.querySelector('#post-content a[data-pswp-width]')) return;
-        import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.js')
+        import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js')
           .then(function (mod) {
             var PhotoSwipeLightbox = mod.default;
             window.__pswpLightbox = new PhotoSwipeLightbox({
               gallery: '#post-content',
               children: 'a[data-pswp-width]',
               pswpModule: function () {
-                return import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.js');
+                return import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.js');
               },
             });
             window.__pswpLightbox.init();

@@ -30,6 +30,7 @@ This guide walks through every aspect of personalizing your as-folio site.
 22. [Enabling / disabling features](#22-enabling--disabling-features)
 23. [Custom styles](#23-custom-styles)
 24. [Footer position](#24-footer-position)
+25. [Visual regression tests](#25-visual-regression-tests)
 
 ---
 
@@ -816,3 +817,18 @@ footer: {
 | `'hidden'` | Footer is not rendered at all                                                             |
 
 When `'sticky'`, the body automatically gains `padding-bottom` to prevent page content from being obscured by the footer. The back-to-top button is also repositioned to sit above it.
+
+---
+
+## 25. Visual regression tests
+
+Visual regression tests are for the demo. Forks: delete `e2e/visual/` or regenerate with `test:visual:update`.
+
+They compare full-page screenshots (light and dark, desktop and mobile) and the generated Open Graph images against committed baselines. Run them only inside Docker so fonts and rendering match the baselines:
+
+```bash
+yarn test:visual:docker            # compare against baselines
+yarn test:visual:docker --update   # regenerate baselines
+```
+
+`yarn test:all` does not run them.
