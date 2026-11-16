@@ -23,7 +23,7 @@ as-folio/
 │   ├── pages/                ← Astro route pages
 │   └── styles/               ← global.css, _colors.css, _typography.css
 ├── scripts/
-│   └── update-citations.ts   ← fetches citation counts from OpenAlex API (run via yarn citations:update)
+│   └── update-citations.ts   ← fetches citation counts from OpenAlex API (run via bun run citations:update)
 ├── public/                   ← static assets (images, favicon, PDFs)
 ├── astro.config.mjs
 ├── package.json
@@ -41,7 +41,7 @@ All paths in this file are relative to the repository root.
 ## Build command
 
 ```bash
-yarn build        # must exit 0 before submitting any PR
+bun run build        # must exit 0 before submitting any PR
 ```
 
 Run this after every non-trivial change. If the build fails, fix it before proceeding.
@@ -53,7 +53,7 @@ Run this after every non-trivial change. If the build fails, fix it before proce
 1. **Read `CLAUDE.md`** — coding conventions, architecture, common pitfalls
 2. **Read `src/config/site.ts`** — understand the config shape before touching features
 3. **Read `src/content.config.ts`** — understand content schemas before adding fields
-4. **Run `yarn build`** — confirm baseline passes
+4. **Run `bun run build`** — confirm baseline passes
 
 ---
 
@@ -61,7 +61,7 @@ Run this after every non-trivial change. If the build fails, fix it before proce
 
 ### Package manager
 
-Use `yarn`. Never `npm` or `npx`. Never `yarn add --dev` — use `yarn add -D`.
+Use `bun`. Never `npm`, `npx` or `yarn`. Add dev dependencies with `bun add -d`.
 
 ### Content Layer API
 
@@ -163,7 +163,7 @@ const { pirsch } = site.analytics;
 
 ## Files you should NOT modify
 
-- `yarn.lock` — managed by yarn automatically
+- `bun.lock` — managed by bun automatically
 - `dist/` — build output, not tracked in git
 - `.husky/` — hooks managed by husky
 
@@ -171,30 +171,30 @@ const { pirsch } = site.analytics;
 
 ## Files you will frequently modify
 
-| File                        | Purpose                                               |
-| --------------------------- | ----------------------------------------------------- |
-| `src/config/site.ts`        | Add feature flags, config options                     |
-| `src/content.config.ts`     | Add collection fields                                 |
-| `src/layouts/Post.astro`    | Add per-post CDN widgets                              |
-| `src/layouts/Base.astro`    | Add global scripts (analytics, consent)               |
-| `src/components/*.astro`    | New UI components                                     |
-| `src/pages/*.astro`         | New or modified pages                                 |
-| `src/content/**/*.md`       | Demo content                                          |
-| `src/data/papers.bib`       | BibTeX demo entries                                   |
-| `src/data/coauthors.yml`    | Co-author links (LastName → url/scholar/orcid)        |
-| `src/data/citations.yml`    | Citation counts; auto-updated — rarely edit manually  |
-| `scripts/update-citations.ts` | Citation fetch script; edit to change API/options   |
-| `CUSTOMIZE.md`              | Document new features                                 |
+| File                          | Purpose                                              |
+| ----------------------------- | ---------------------------------------------------- |
+| `src/config/site.ts`          | Add feature flags, config options                    |
+| `src/content.config.ts`       | Add collection fields                                |
+| `src/layouts/Post.astro`      | Add per-post CDN widgets                             |
+| `src/layouts/Base.astro`      | Add global scripts (analytics, consent)              |
+| `src/components/*.astro`      | New UI components                                    |
+| `src/pages/*.astro`           | New or modified pages                                |
+| `src/content/**/*.md`         | Demo content                                         |
+| `src/data/papers.bib`         | BibTeX demo entries                                  |
+| `src/data/coauthors.yml`      | Co-author links (LastName → url/scholar/orcid)       |
+| `src/data/citations.yml`      | Citation counts; auto-updated — rarely edit manually |
+| `scripts/update-citations.ts` | Citation fetch script; edit to change API/options    |
+| `CUSTOMIZE.md`                | Document new features                                |
 
 ---
 
 ## Testing
 
 ```bash
-yarn test           # unit tests (Vitest)
-yarn lint           # ESLint
-yarn format         # Prettier (check only in CI)
-yarn build          # full production build + pagefind index
+bun run test           # unit tests (Vitest)
+bun run lint           # ESLint
+bun run format         # Prettier (check only in CI)
+bun run build          # full production build + pagefind index
 ```
 
 The build is the primary acceptance test. All pages must generate without errors.
@@ -203,8 +203,8 @@ The build is the primary acceptance test. All pages must generate without errors
 
 ## Pull request checklist
 
-- [ ] `yarn build` exits 0 with 0 TypeScript errors
-- [ ] `yarn lint` passes
+- [ ] `bun run build` exits 0 with 0 TypeScript errors
+- [ ] `bun run lint` passes
 - [ ] New feature has a flag in `site.ts`
 - [ ] New feature documented in `CUSTOMIZE.md`
 - [ ] New collection fields added to `src/content.config.ts`

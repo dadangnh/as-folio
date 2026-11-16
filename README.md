@@ -87,8 +87,7 @@ For project pages, keep `ASTRO_SITE` as the site origin, for example
 ### Option B — Local development
 
 ```bash
-# Prerequisites: Node 24+, Astro 6.4+, Corepack enabled
-corepack enable
+# Prerequisites: Bun 1.4+ (https://bun.sh)
 
 # Clone
 git clone https://github.com/YOUR-USERNAME/as-folio.git
@@ -98,13 +97,13 @@ cd as-folio
 cp .env.example .env
 
 # Install
-yarn install
+bun install
 
 # Dev server
-yarn dev
+bun run dev
 
 # Production build
-yarn build
+bun run build
 ```
 
 ---
@@ -228,7 +227,7 @@ Add an entry to `src/data/papers.bib`:
 }
 ```
 
-Citation counts for `google_scholar_id` entries are stored in `src/data/citations.yml` and refreshed automatically on every deploy (via the pre-build script) or on demand with `yarn citations:update`.
+Citation counts for `google_scholar_id` entries are stored in `src/data/citations.yml` and refreshed automatically on every deploy (via the pre-build script) or on demand with `bun run citations:update`.
 
 ### Project
 
@@ -289,7 +288,7 @@ Already configured in `.gitlab-ci.yml`. Push to your default branch after:
 ### Cloudflare Pages
 
 ```
-Build command:  yarn build
+Build command:  bun run build
 Output dir:     dist
 Node version:   24
 ```
@@ -325,10 +324,10 @@ Already configured in `vercel.json`. Connect your repo in Vercel dashboard.
 Issues and PRs are welcome. See [AGENTS.md](AGENTS.md) for AI-assisted contribution guidelines.
 
 ```bash
-yarn lint        # run ESLint
-yarn format      # run Prettier
-yarn test        # run unit tests
-yarn build       # verify production build
+bun run lint        # run ESLint
+bun run format      # run Prettier
+bun run test        # run unit tests
+bun run build       # verify production build
 ```
 
 ---

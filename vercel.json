@@ -1,7 +1,7 @@
 {
-  "buildCommand": "yarn build",
+  "buildCommand": "bun run build",
   "outputDirectory": "dist",
-  "installCommand": "yarn install",
+  "installCommand": "bun install --frozen-lockfile",
   "framework": null,
   "headers": [
     {

@@ -1,9 +1,9 @@
 [build]
-  command = "yarn build"
+  command = "bun run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "24"
+  BUN_VERSION = "1.4.3"
 
 # Redirect all routes that don't match a file to 404
 [[redirects]]

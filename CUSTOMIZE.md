@@ -363,7 +363,7 @@ qyhmnyLat1gC: 14200 # EPR paper
 **Refreshing counts:**
 
 ```bash
-yarn citations:update
+bun run citations:update
 ```
 
 This calls the [OpenAlex API](https://openalex.org) (free, no auth) to fetch current counts for every paper that has both `doi` and `google_scholar_id` set. Results are written back to `citations.yml`.
@@ -730,7 +730,7 @@ features: {
 },
 ```
 
-The search index is rebuilt on every `yarn build` run.
+The search index is rebuilt on every `bun run build` run.
 
 ---
 
@@ -827,8 +827,8 @@ Visual regression tests are for the demo. Forks: delete `e2e/visual/` or regener
 They compare full-page screenshots (light and dark, desktop and mobile) and the generated Open Graph images against committed baselines. Run them only inside Docker so fonts and rendering match the baselines:
 
 ```bash
-yarn test:visual:docker            # compare against baselines
-yarn test:visual:docker --update   # regenerate baselines
+bun run test:visual:docker            # compare against baselines
+bun run test:visual:docker --update   # regenerate baselines
 ```
 
-`yarn test:all` does not run them.
+`bun run test:all` does not run them.

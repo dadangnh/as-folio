@@ -1,4 +1,5 @@
-image: node:24
+# oven/bun default tags are Debian-based (glibc), which pagefind's prebuilt binary needs.
+image: oven/bun:1.4.3
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Override in Settings → CI/CD → Variables:
@@ -8,6 +9,8 @@ image: node:24
 # ──────────────────────────────────────────────────────────────────────────────
 variables:
   NODE_ENV: production
+  HUSKY: '0'
+  BUN_INSTALL_CACHE_DIR: .bun-cache
   ASTRO_SITE: https://username.gitlab.io
   ASTRO_BASE: /as-folio
 
@@ -18,38 +21,37 @@ stages:
   - deploy
 
 cache:
-  key: "$CI_COMMIT_REF_SLUG"
+  key: '$CI_COMMIT_REF_SLUG'
   paths:
-    - .yarn/cache/
+    - .bun-cache/
     - node_modules/
 
 before_script:
-  - corepack enable
-  - yarn install --immutable
+  - bun install --frozen-lockfile
 
 typecheck:
   stage: validate
   interruptible: true
   script:
-    - yarn test:types
+    - bun run test:types
 
 lint:
   stage: validate
   interruptible: true
   script:
-    - yarn lint:ci
+    - bun run lint:ci
 
 unit-test:
   stage: test
   interruptible: true
   script:
-    - yarn test
+    - bun run test
 
 build:
   stage: build
   interruptible: true
   script:
-    - yarn build
+    - bun run build
   artifacts:
     paths:
       - dist/

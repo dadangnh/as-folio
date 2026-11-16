@@ -6,6 +6,9 @@ on:
     - cron: '0 2 * * 0'
   workflow_dispatch:
 
+env:
+  HUSKY: 0
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -15,18 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Enable Corepack (Yarn 4)
-        run: corepack enable
-
-      - uses: actions/setup-node@v5
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '24'
+          bun-version-file: package.json
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: bun install --frozen-lockfile
 
       - name: Fetch citation counts from OpenAlex
-        run: yarn citations:update
+        run: bun run citations:update
 
       - name: Commit updated citations.yml
         run: |

@@ -5,5 +5,5 @@
 # to Google Scholar citation counts, updated within days of a new citation.
 #
 # Last updated: 2026-05-03
-# To refresh: yarn citations:update
+# To refresh: bun run citations:update
 qyhmnyLat1gC: 16608

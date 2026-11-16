@@ -5,11 +5,6 @@ dist/
 
 # Dependencies
 node_modules/
-.yarn/cache/
-.yarn/unplugged/
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
 
 # Environment
 .env
@@ -34,5 +29,3 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*

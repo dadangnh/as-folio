@@ -17,14 +17,14 @@ Einstein, Torvalds, and Dadang NH as personas. All configuration is exposed via
 
 ## Package manager
 
-**Always use `yarn`. Never use `npm` or `npx`.**
+**Always use `bun`. Never use `npm`, `npx` or `yarn`.**
 
 ```bash
-yarn install        # install dependencies
-yarn dev            # development server
-yarn build          # production build (includes pagefind indexing)
-yarn lint           # ESLint
-yarn format         # Prettier
+bun install            # install dependencies
+bun run dev            # development server
+bun run build          # production build (includes pagefind indexing)
+bun run lint           # ESLint
+bun run format         # Prettier
 ```
 
 ---
@@ -71,8 +71,8 @@ yarn format         # Prettier
 ### Citations update script
 
 - `scripts/update-citations.ts` — fetches citation counts from the OpenAlex API (by DOI) and writes `src/data/citations.yml`
-- Run manually: `yarn citations:update`
-- Runs automatically as `prebuild` before every `yarn build`
+- Run manually: `bun run citations:update`
+- Runs automatically as `prebuild` before every `bun run build`
 - GitHub Actions workflow (`.github/workflows/update-citations.yml`) also runs this weekly and commits the result
 
 ### Analytics
@@ -143,7 +143,7 @@ yarn format         # Prettier
 After any significant change:
 
 ```bash
-yarn build
+bun run build
 ```
 
 The build must:

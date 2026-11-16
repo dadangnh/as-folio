@@ -35,35 +35,29 @@ type SearchItem = { id: string; title: string; section: string; href: string; ke
 
 const posts = (await getCollection('posts'))
   .filter((p) => !p.data.hidden && !p.data.draft)
-  .map(
-    (p): SearchItem => ({
-      id: `post-${p.id}`,
-      title: p.data.title,
-      section: 'Blog Posts',
-      href: `${base}/blog/${p.id}/`,
-      keywords: [...(p.data.tags ?? []), ...(p.data.categories ?? [])].join(' '),
-    }),
-  );
-
-const projects = (await getCollection('projects')).map(
-  (p): SearchItem => ({
-    id: `project-${p.id}`,
+  .map((p): SearchItem => ({
+    id: `post-${p.id}`,
     title: p.data.title,
-    section: 'Projects',
-    href: `${base}/projects/${p.id}/`,
-    keywords: p.data.category ?? '',
-  }),
-);
+    section: 'Blog Posts',
+    href: `${base}/blog/${p.id}/`,
+    keywords: [...(p.data.tags ?? []), ...(p.data.categories ?? [])].join(' '),
+  }));
 
-const teaching = (await getCollection('teaching')).map(
-  (t): SearchItem => ({
-    id: `teaching-${t.id}`,
-    title: t.data.title,
-    section: 'Teaching',
-    href: `${base}/teaching/`,
-    keywords: t.data.term ?? '',
-  }),
-);
+const projects = (await getCollection('projects')).map((p): SearchItem => ({
+  id: `project-${p.id}`,
+  title: p.data.title,
+  section: 'Projects',
+  href: `${base}/projects/${p.id}/`,
+  keywords: p.data.category ?? '',
+}));
+
+const teaching = (await getCollection('teaching')).map((t): SearchItem => ({
+  id: `teaching-${t.id}`,
+  title: t.data.title,
+  section: 'Teaching',
+  href: `${base}/teaching/`,
+  keywords: t.data.term ?? '',
+}));
 
 const allItems: SearchItem[] = [...posts, ...projects, ...teaching];
 ---
@@ -147,7 +141,7 @@ const allItems: SearchItem[] = [...posts, ...projects, ...teaching];
         return;
       }
 
-      // Try Pagefind first (full-text, available after yarn build)
+      // Try Pagefind first (full-text, available after bun run build)
       const pf = await loadPagefind();
       if (pf) {
         const response = await pf.search(query);

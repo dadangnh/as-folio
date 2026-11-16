@@ -10,7 +10,7 @@
  * Scholar's numbers and are updated within days of a new citation appearing.
  *
  * Usage:
- *   yarn citations:update
+ *   bun run citations:update
  *
  * Run automatically via the "Update Citations" GitHub Actions workflow (weekly).
  */
@@ -141,7 +141,7 @@ async function main(): Promise<void> {
     '# to Google Scholar citation counts, updated within days of a new citation.',
     '#',
     `# Last updated: ${new Date().toISOString().split('T')[0]}`,
-    '# To refresh: yarn citations:update',
+    '# To refresh: bun run citations:update',
     '',
   ].join('\n');
 
