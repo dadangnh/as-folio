@@ -65,7 +65,7 @@ Use `bun`. Never `npm`, `npx` or `yarn`. Add dev dependencies with `bun add -d`.
 
 ### Content Layer API
 
-Use Astro 6 API: `const { Content } = await render(entry)` — not `entry.render()`.
+Use the Astro Content Layer API: `const { Content } = await render(entry)` — not `entry.render()`.
 
 ### CSS
 

@@ -43,7 +43,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "astro": ">=6.4.0"
+    "astro": ">=7.0.0"
   },
   "scripts": {
     "dev": "bun --bun astro dev",
@@ -73,10 +73,10 @@
     "compare:dist": "bun scripts/compare-dist.ts"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "7.2.0",
-    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/markdown-remark": "^7.3.8",
+    "@astrojs/mdx": "^8.1.5",
     "@astrojs/partytown": "^2.1.9",
-    "@astrojs/react": "^5.0.7",
+    "@astrojs/react": "^7.1.8",
     "@astrojs/rss": "^4.0.19",
     "@fontsource/roboto": "^5.3.0",
     "@fontsource/roboto-condensed": "^5.3.0",
@@ -86,7 +86,7 @@
     "@iconify-json/fa-regular": "^1.2.2",
     "@iconify-json/fa-solid": "^1.2.2",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^6.4.8",
+    "astro": "^7.4.11",
     "js-yaml": "^4.3.2",
     "katex": "0.16.42",
     "medium-zoom": "^1.1.2",
@@ -135,7 +135,7 @@
     "tailwindcss": "^4.3.5",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.2",
-    "vite": "7.3.5",
+    "vite": "8.3.8",
     "vitest": "^5.1.0"
   },
   "overrides": {

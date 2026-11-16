@@ -6,7 +6,7 @@ Instructions for Claude Code when working on this repository.
 
 ## Project overview
 
-**as-folio** is a standalone Astro v6 template for academic portfolios, built with
+**as-folio** is a standalone Astro v7 template for academic portfolios, built with
 TypeScript and Tailwind CSS v4.
 
 Key constraint: this is a **reusable template**, not a personal site. Demo content uses
@@ -36,12 +36,12 @@ bun run format         # Prettier
 - `src/config/site.ts` — all site settings, typed, JSDoc-documented. This is the one file
   template users edit. Add new config here (with JSDoc) when adding features.
 
-### Content Layer (Astro 6)
+### Content Layer (Astro 7)
 
 - `src/content.config.ts` — collection schemas using `glob` loader + Zod
 - Collections: `posts`, `projects`, `people`, `teaching`, `announcements`, `books`
 - Use `z.coerce.string()` for ISBN/OLID fields (YAML parses bare numbers as JS numbers)
-- Use `render(entry)` not `entry.render()` (Astro 6 API)
+- Use `render(entry)` not `entry.render()` (Content Layer API)
 - Posts support `draft: boolean` (excluded from listings and search index) and `lastmod: date` (shown in header, used in JSON-LD `dateModified`)
 
 ### CSS
@@ -125,7 +125,7 @@ bun run format         # Prettier
 
 | Issue                        | Fix                                                                                                                                                                                              |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `render()` error             | Use `const { Content } = await render(entry)` (Astro 6 API)                                                                                                                                      |
+| `render()` error             | Use `const { Content } = await render(entry)` (Content Layer API)                                                                                                                                |
 | YAML number parsed as string | Use `z.coerce.string()` in schema                                                                                                                                                                |
 | Dark mode flash              | Ensure `<script is:inline>` with `localStorage` check is in `<head>` before CSS                                                                                                                  |
 | Nested `<a>` elements        | Use `data-href` + JS click handler for clickable cards; inner links stay real `<a>`                                                                                                              |

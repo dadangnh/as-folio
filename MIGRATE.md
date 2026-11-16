@@ -28,4 +28,11 @@ as-folio 3.0 uses [Bun](https://bun.sh) as package manager and runtime instead o
 
 ### Astro 7
 
-<!-- Filled in when the Astro 7 upgrade lands (peer requirement and any config changes). -->
+as-folio 3.0 requires **Astro 7** (`peerDependencies.astro` is `>=7.0.0`). Bump `astro`, `@astrojs/mdx` (8), `@astrojs/react` (7), `@astrojs/markdown-remark`, `@astrojs/rss`, `@astrojs/partytown` and `@astrojs/check` together, and declare `vite` at the version Astro 7 uses (8.x).
+
+Things to check in your own content and components:
+
+- **Markdown still uses remark/rehype.** Astro 7 defaults to a new Markdown engine; as-folio keeps the unified pipeline through `@astrojs/markdown-remark` so remark/rehype plugins (math, KaTeX, external links) keep working. Keep the `unified` import in `astro.config.mjs`.
+- **Entities in component props are no longer decoded.** Write `title="Honors & Awards"`, not `title="Honors &amp; Awards"` — Astro 7 escapes the string again and the page would show `&amp;`.
+- **Whitespace inside `<pre>` follows your template exactly.** If a component renders `<pre>` with an expression on its own line, the Astro 7 compiler emits one newline fewer than Astro 6. `src/components/JupyterNotebook.astro` shows how to emit explicit whitespace when you need identical output.
+- **Invalid HTML is not auto-fixed** by the new compiler; unclosed tags are build errors.

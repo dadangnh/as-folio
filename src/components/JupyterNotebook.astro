@@ -71,9 +71,9 @@ const numberedCells = cells.map((cell) => {
       if (cell.cell_type === 'raw') {
         return (
           <div class="jupyter-cell jupyter-raw-cell mb-4 rounded border border-gray-200 px-3 py-2 dark:border-gray-700">
-            <pre class="text-xs whitespace-pre-wrap text-gray-600 dark:text-gray-400">
-              {joinSource(cell.source)}
-            </pre>
+            {/* Explicit whitespace reproduces the Astro 6 output byte-for-byte (leading blank
+                line + indentation); the Astro 7 compiler emits one fewer newline. */}
+            <pre class="text-xs whitespace-pre-wrap text-gray-600 dark:text-gray-400">{`\n\n${' '.repeat(14)}${joinSource(cell.source)}\n${' '.repeat(12)}`}</pre>
           </div>
         );
       }
@@ -117,10 +117,9 @@ const numberedCells = cells.map((cell) => {
                   }
 
                   if (text) {
+                    // Explicit whitespace: see the raw-cell note above.
                     return (
-                      <pre class="m-0 px-3 text-xs leading-relaxed whitespace-pre-wrap text-gray-800 dark:text-gray-200">
-                        {text}
-                      </pre>
+                      <pre class="m-0 px-3 text-xs leading-relaxed whitespace-pre-wrap text-gray-800 dark:text-gray-200">{`\n\n${' '.repeat(24)}${text}\n${' '.repeat(22)}`}</pre>
                     );
                   }
 

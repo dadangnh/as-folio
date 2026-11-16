@@ -307,7 +307,7 @@ Already configured in `vercel.json`. Connect your repo in Vercel dashboard.
 
 | Layer           | Technology                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| Framework       | [Astro 6.4+](https://astro.build)                                                        |
+| Framework       | [Astro 7+](https://astro.build)                                                          |
 | CSS             | [Tailwind CSS v4](https://tailwindcss.com)                                               |
 | Types           | TypeScript (strict)                                                                      |
 | Math            | KaTeX via remark-math + rehype-katex                                                     |
